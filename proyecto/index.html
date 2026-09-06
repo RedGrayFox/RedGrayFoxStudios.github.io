@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedGrayFox Studio | Desarrollo</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
+    
+    <style>
+        /* Variables de color */
+        :root {
+            --red-fox: #ff2a4b;
+            --red-glow: rgba(255, 42, 75, 0.4);
+            --silver-metal: #a3a8b5;
+            --bg-dark: #06080e;
+            --panel-bg: rgba(12, 16, 26, 0.75);
+            --panel-border: rgba(163, 168, 181, 0.2);
+        }
+
+        /* Configuración global de pantalla */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            background-image:
+                radial-gradient(circle at 50% 50%, rgba(255, 42, 75, 0.15) 0%, transparent 60%),
+                url('../images/dbgp1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #ffffff;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Encabezado superior */
+        header {
+            height: 70px;
+            background: rgba(8, 10, 16, 0.95);
+            border-bottom: 2px solid var(--red-fox);
+            box-shadow: 0 0 15px var(--red-glow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            box-sizing: border-box;
+        }
+
+        .brand h1 {
+            font-size: 1.3rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .brand h1 a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .brand h1 span {
+            color: var(--red-fox);
+        }
+
+        /* Selector de Idioma (ES / EN) */
+        .lang-switch button {
+            background: transparent;
+            border: 1px solid var(--silver-metal);
+            color: #fff;
+            padding: 5px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .lang-switch button:hover {
+            border-color: var(--red-fox);
+            color: var(--red-fox);
+            box-shadow: 0 0 8px var(--red-glow);
+        }
+
+        /* Contenedor Flexbox de 2 Columnas */
+        .main-container {
+            display: flex;
+            height: calc(100vh - 70px);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* COLUMNA IZQUIERDA: Avances del Proyecto */
+        .left-col {
+            flex: 1;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 8px 0 0 8px;
+            padding: 25px;
+            overflow-y: auto;
+            backdrop-filter: blur(0px);
+            margin-right: 15px;
+            border-right: 2px solid var(--red-fox);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        /* COLUMNA DERECHA: Comentarios de Disqus */
+        .right-col {
+            flex: 1;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 0 8px 8px 0;
+            padding: 25px;
+            overflow-y: auto;
+            backdrop-filter: blur(0px);
+            margin-left: 15px;
+            box-shadow: 5px 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Publicaciones en la columna izquierda */
+        .entry {
+            background: rgba(20, 26, 40, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 18px;
+            margin-bottom: 25px;
+        }
+
+        .entry-date {
+            color: var(--red-fox);
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .entry-title {
+            margin: 8px 0 12px 0;
+            color: #fff;
+        }
+
+        .entry img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid var(--panel-border);
+            margin-top: 10px;
+        }
+
+        .entry audio {
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.3);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--red-fox);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <h1><a href="../index.html"><span>RED</span>GRAYFOXSTUDIO</a></h1>
+        </div>
+        <div class="lang-switch">
+            <button onclick="switchLanguage('es')">ES</button>
+            <button onclick="switchLanguage('en')">EN</button>
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <!-- COLUMNA IZQUIERDA (DESARROLLO) -->
+        <section class="left-col">
+            <h2 class="lang" data-es="DESARROLLO" data-en="DEVELOPMENT">DESARROLLO</h2>
+            <hr style="border: 0.5px solid var(--panel-border); margin-bottom: 20px;">
+
+           <div id="devlog-container">
+    <article class="entry">
+        <span class="entry-date lang" data-es="Actualizaciones" data-en="Updates">Actualizaciones</span>
+        <h3 class="entry-title lang" data-es="Lógica y Actualización de Sprites" data-en="Sprites & Logic Update">Lógica y Actualización de Sprites</h3>
+        <p class="lang" data-es="Personajes, movimientos, escenarios, etc." data-en="Characters, movements, scene layout, etc.">Personajes, movimientos, escenarios, etc.</p>
+    </article>
+</div>
+        </section>
+
+        <!-- COLUMNA DERECHA (DISQUS) -->
+        <section class="right-col">
+            <h2 class="lang" data-es="COMUNIDAD Y OPINIONES" data-en="COMMUNITY & FEEDBACK">COMMUNITY & FEEDBACK</h2>
+            <hr style="border: 0.5px solid var(--panel-border); margin-bottom: 20px;">
+
+            <div id="disqus_thread"></div>
+
+        </section>
+
+    </div>
+
+    <!-- CAMBIO DE IDIOMA -->
+    <script>
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang').forEach(el => {
+                el.innerText = el.getAttribute(`data-${lang}`);
+            });
+        }
+    </script>
+
+    <!-- INTEGRACIÓN DISQUS -->
+    <script>
+        var disqus_config = function () {
+            this.page.url = window.location.href;
+            this.page.identifier = 'redgrayfox-game-devlog';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://tu-shortname-aqui.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+    <!-- CONEXIÓN AL BAÚL EN LA NUBE -->
+    <script>
+        const BAUL_URL = 'https://tu-almacenamiento.com/devlog.json';
+
+        async function cargarDevlog() {
+            try {
+                const respuesta = await fetch(BAUL_URL);
+                const publicaciones = await respuesta.json();
+
+                const contenedor = document.getElementById('devlog-container');
+                contenedor.innerHTML = ''; 
+
+                publicaciones.forEach(pub => {
+                    const articulo = document.createElement('article');
+                    articulo.className = 'entry';
+
+                    articulo.innerHTML = `
+                        <span class="entry-date">${pub.fecha || ''}</span>
+                        <h3 class="entry-title">${pub.titulo || ''}</h3>
+                        <p>${pub.descripcion || ''}</p>
+                        ${pub.imagen ? `<img src="${pub.imagen}" alt="${pub.titulo}">` : ''}
+                        ${pub.audio ? `<audio controls src="${pub.audio}"></audio>` : ''}
+                    `;
+
+                    contenedor.appendChild(articulo);
+                });
+            } catch (error) {
+                console.error('Error al conectar con el baúl:', error);
+            };
+        }
+
+        cargarDevlog();
+    </script>
+
+<script>
+    var disqus_config = function () {
+    this.page.url = window.location.href;
+    this.page.identifier = 'devlog-main';
+};
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://redgrayfoxstudio.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+</body>
+</html>
