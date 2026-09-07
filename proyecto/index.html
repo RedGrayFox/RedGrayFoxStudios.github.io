@@ -202,12 +202,18 @@
 
     <!-- CAMBIO DE IDIOMA -->
     <script>
-        function switchLanguage(lang) {
-            document.querySelectorAll('.lang').forEach(el => {
-                el.innerText = el.getAttribute(`data-${lang}`);
-            });
-        }
-    </script>
+  function switchLanguage(lang) {
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('.lang').forEach(el => {
+      el.innerText = el.getAttribute(`data-${lang}`);
+    });
+
+    if (typeof renderDevlog === 'function') {
+      renderDevlog();
+    }
+  }
+</script>
 
     <!-- INTEGRACIÓN DISQUS -->
     <script>
@@ -240,22 +246,33 @@
 
 
 <script>
-  fetch('../devlog.json')
-    .then(response => response.json())
-    .then(data => {
+    let devlogData = [];
+  function renderDevlog() {
       const container = document.getElementById('devlog-container');
-      if (data && data.length > 0) {
-        container.innerHTML = data.map(post => `
-          <article class="entry" style="margin-bottom: 20px;">
-            ${post.imagen ? `<img src="../${post.imagen}" alt="Devlog Image" style="display: block; width: 100%; max-width: 500px; height: auto; margin-bottom: 10px;">` : ''}
-            <span class="entry-date">${post.fecha}</span>
-            <h3 class="entry-title">${post.titulo}</h3>
-            <p>${post.resumen}</p>
-          </article>
-        `).join('');
-      }
-    })
-    .catch(err => console.error('Error cargando devlog:', err));
+      if (!container || !devlogData.length) return;
+    // Lee el idioma actual de la página (<html lang="es"> o "en")
+      const currentLang = document.documentElement.lang || 'es';
+    container.innerHTML = devlogData.map(post => {
+        // Obtiene el contenido en el idioma activo (o 'es' por defecto)
+        const content = post[currentLang] || post['es'] || {};
+      return `
+      <article class="entry" style="margin-bottom: 20px;">
+      ${post.imagen ? `<img src="../${post.imagen}" alt="Devlog Image" style="display: block; width: 100%; max-width: 500px; height: auto; margin-bottom: 10px;">` : ''}
+      <span class="entry-date">${post.fecha}</span>
+      <h3 class="entry-title">${content.titulo || ''}</h3>
+      <p>${content.resumen || ''}</p>
+      </article>
+      `;
+    }).join('');
+  }
+  // Carga el JSON fresco evitando la memoria caché
+    fetch('../devlog.json?v=' + new Date().getTime())
+        .then(response => response.json())
+        .then(data => {
+            devlogData = data;
+            renderDevlog();
+        })
+        .catch(err => console.error('Error cargando devlog:', err));
 </script>
 
 
