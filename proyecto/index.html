@@ -158,6 +158,24 @@
         ::-webkit-scrollbar-thumb {
             background: var(--red-fox);
             border-radius: 4px;
+
+          /* Aviso de girar pantalla */
+  .rotate-notice {
+    display: none !important; /* Lo oculta en PC */
+    text-align: center !important;
+    width: 100% !important;
+    margin: 10px auto !important;
+    font-size: 0.8rem;
+    color: #a3a8b5;
+  }
+
+  /* Solo se muestra centrado en móviles verticales */
+  @media (max-width: 768px) and (orientation: portrait) {
+    .rotate-notice {
+      display: block !important;
+    }
+  }
+    
         }
     </style>
 </head>
@@ -173,9 +191,10 @@
         </div>
     </header>
 
-    <div class="main-container">
     <p class="rotate-notice lang" data-es="Gira el dispositivo para una mejor experiencia" data-en="Rotate device for a better experience">Gira el dispositivo para una mejor experiencia</p>
 
+    <div class="main-container">
+    
         <!-- COLUMNA IZQUIERDA (DESARROLLO) -->
         <section class="left-col">
             <h2 class="lang" data-es="DESARROLLO" data-en="DEVELOPMENT">DESARROLLO</h2>
