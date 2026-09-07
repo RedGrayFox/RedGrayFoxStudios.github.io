@@ -1677,5 +1677,27 @@ input, select, textarea {
 .lang-switcher:hover {
     background-color: #555555;
     color: white;
+
+
+/* Layout responsivo para pantallas móviles (máximo 768px) */
+@media (max-width: 768px) {
+  /* Si el contenedor principal usa Flexbox, cambia las columnas a vertical */
+  main,
+  .main-container,
+  div:has(> .left-col) {
+    flex-direction: column !important;
+    display: flex !important;
+  }
+
+  /* Aplica ancho completo a las dos columnas */
+  .left-col,
+  .right-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+}
+
 }
 /* Forzar nuevo deploy */
