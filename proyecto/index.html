@@ -179,7 +179,7 @@
         <section class="left-col">
             <h2 class="lang" data-es="DESARROLLO" data-en="DEVELOPMENT">DESARROLLO</h2>
             <hr style="border: 0.5px solid var(--panel-border); margin-bottom: 20px;">
-
+  
            <div id="devlog-container">
     <article class="entry">
         <span class="entry-date lang" data-es="Actualizaciones" data-en="Updates">Actualizaciones</span>
@@ -273,7 +273,24 @@
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
+<script>
+    fetch('devlog.json')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('devlog-container');
+            if (data && data.length > 0) {
+                container.innerHTML = data.map(post => `
+                    <article class="entry">
+                        <span class="entry-date">${post.fecha}</span>
+                        <h3 class="entry-title">${post.titulo}</h3>
+                        <p>${post.resumen}</p>
+                    </article>
+                `).join('');
+            }
+        })
+        .catch(err => console.error('Error cargando devlog:', err));
+</script>
 
-
+    
 </body>
 </html>
