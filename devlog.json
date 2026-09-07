@@ -3,22 +3,29 @@
   {
     "id": 2,
     "fecha": "2026-09-06",
-    "titulo": "Update del proyecto COLAPSO sprite tienda ettes",
     "categoria": "Desarrollo",
-    "resumen": "Definiendo el concepto visual, la estética.",
     "imagen": "devlog-img/ettes.png",
+    "es": {
+      "titulo": "Update del proyecto COLAPSO sprite tienda ettes",
+      "resumen": "Definiendo el concepto visual, la estética."
+    },
     "en": {
-      "titulo": "PRJECT COLLAPSE UPDATE - ettes shop sprite",
-      "resume": "Defining the visual concept aesthetics."
+      "titulo": "PROJECT COLLAPSE UPDATE - ettes shop sprite",
+      "resumen": "Defining the visual concept aesthetics."
+    }
   },
-  {
+  {    
     "id": 1,
     "fecha": "2026-09-06",
-    "titulo": "Inicio del proyecto COLAPSO",
     "categoria": "Desarrollo",
-    "resumen": "Definiendo el concepto visual y la estética.",
+    "es": {
+      "titulo": "Inicio del proyecto COLAPSO",
+      "resumen": "Definiendo el concepto visual y la estética."
+    },
     "en": {
       "titulo": "PROJECT COLLAPSE START",
       "resumen": "Defining the visual concept and aesthetics."
     }
+  }
 ]
+
