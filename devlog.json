@@ -9,7 +9,7 @@
     "imagen": "devlog-img/ettes.png",
     "en": {
       "titulo": "PRJECT COLLAPSE UPDATE - ettes shop sprite",
-      "resume": "Defining the visual concept aesthetics."}
+      "resume": "Defining the visual concept aesthetics."
   },
   {
     "id": 1,
@@ -20,5 +20,5 @@
     "en": {
       "titulo": "PROJECT COLLAPSE START",
       "resumen": "Defining the visual concept and aesthetics."
-  }
+    }
 ]
