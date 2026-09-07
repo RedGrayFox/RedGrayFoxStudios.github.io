@@ -223,40 +223,6 @@
         })();
     </script>
 
-    <!-- CONEXIÓN AL BAÚL EN LA NUBE -->
-    <script>
-        const BAUL_URL = 'https://tu-almacenamiento.com/devlog.json';
-
-        async function cargarDevlog() {
-            try {
-                const respuesta = await fetch(BAUL_URL);
-                const publicaciones = await respuesta.json();
-
-                const contenedor = document.getElementById('devlog-container');
-                contenedor.innerHTML = ''; 
-
-                publicaciones.forEach(pub => {
-                    const articulo = document.createElement('article');
-                    articulo.className = 'entry';
-
-                    articulo.innerHTML = `
-                        <span class="entry-date">${pub.fecha || ''}</span>
-                        <h3 class="entry-title">${pub.titulo || ''}</h3>
-                        <p>${pub.descripcion || ''}</p>
-                        ${pub.imagen ? `<img src="${pub.imagen}" alt="${pub.titulo}">` : ''}
-                        ${pub.audio ? `<audio controls src="${pub.audio}"></audio>` : ''}
-                    `;
-
-                    contenedor.appendChild(articulo);
-                });
-            } catch (error) {
-                console.error('Error al conectar con el baúl:', error);
-            };
-        }
-
-        cargarDevlog();
-    </script>
-
 <script>
     var disqus_config = function () {
     this.page.url = window.location.href;
