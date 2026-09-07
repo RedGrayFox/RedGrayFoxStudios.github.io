@@ -1,17 +1,17 @@
 
-[  
-  {    
-    "id": 2,    
-    "fecha": "2026-09-06",    
-    "titulo": "Update del proyecto COLAPSO",    
-    "categoria": "Desarrollo",    
-    "resumen": "Definiendo el concepto visual, la estética industrial y la temática sobre la lucha socioeconómica diaria."  
-  },  
-  {    
-    "id": 1,    
-    "fecha": "2026-09-06",    
-    "titulo": "Inicio del proyecto COLAPSO",    
-    "categoria": "Desarrollo",    
-    "resumen": "Definiendo el concepto visual, la estética industrial y la temática sobre la lucha socioeconómica diaria."  
+[
+  {
+    "id": 2,
+    "fecha": "2026-09-06",
+    "titulo": "Update del proyecto COLAPSO",
+    "categoria": "Desarrollo",
+    "resumen": "Definiendo el concepto visual, la estética industrial y la temática sobre la lucha socioeconómica diaria."
+  },
+  {
+    "id": 1,
+    "fecha": "2026-09-06",
+    "titulo": "Inicio del proyecto COLAPSO",
+    "categoria": "Desarrollo",
+    "resumen": "Definiendo el concepto visual, la estética industrial y la temática sobre la lucha socioeconómica diaria."
   }
 ]
