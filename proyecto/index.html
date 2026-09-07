@@ -274,21 +274,22 @@
 
 
 <script>
-    fetch('../devlog.json')
-        .then(response => response.json())
-        .then(data => {
-            const container = document.getElementById('devlog-container');
-            if (data && data.length > 0) {
-                container.innerHTML = data.map(post => `
-                    <article class="entry">
-                        <span class="entry-date">${post.fecha}</span>
-                        <h3 class="entry-title">${post.titulo}</h3>
-                        <p>${post.resumen}</p>
-                    </article>
-                `).join('');
-            }
-        })
-        .catch(err => console.error('Error cargando devlog:', err));
+  fetch('../devlog.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('devlog-container');
+      if (data && data.length > 0) {
+        container.innerHTML = data.map(post => `
+          <article class="entry">
+            ${post.imagen ? `<img src="../${post.imagen.replace(/^\//, '')}" class="entry-image" style="max-width: 100%; height: auto;">` : ''}
+            <span class="entry-date">${post.fecha}</span>
+            <h3 class="entry-title">${post.titulo}</h3>
+            <p>${post.resumen}</p>
+          </article>
+        `).join('');
+      }
+    })
+    .catch(err => console.error('Error cargando devlog:', err));
 </script>
 
     
