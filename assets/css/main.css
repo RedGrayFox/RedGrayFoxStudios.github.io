@@ -1699,5 +1699,21 @@ input, select, textarea {
   }
 }
 
+/* Aviso de giro de pantalla */
+.rotate-notice {
+  display: none;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #888888;
+  margin: 8px 0;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .rotate-notice {
+    display: block;
+  }
+}
+
 }
 /* Forzar nuevo deploy */
