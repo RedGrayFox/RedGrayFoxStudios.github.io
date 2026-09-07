@@ -280,8 +280,8 @@
       const container = document.getElementById('devlog-container');
       if (data && data.length > 0) {
         container.innerHTML = data.map(post => `
-          <article class="entry">
-            ${post.imagen ? `<img src="../${post.imagen.replace(/^\//, '')}" class="entry-image" style="max-width: 100%; height: auto;">` : ''}
+          <article class="entry" style="margin-bottom: 20px;">
+            ${post.imagen ? `<img src="../${post.imagen}" alt="Devlog Image" style="display: block; width: 100%; max-width: 500px; height: auto; margin-bottom: 10px;">` : ''}
             <span class="entry-date">${post.fecha}</span>
             <h3 class="entry-title">${post.titulo}</h3>
             <p>${post.resumen}</p>
@@ -291,6 +291,7 @@
     })
     .catch(err => console.error('Error cargando devlog:', err));
 </script>
+
 
     
 </body>
