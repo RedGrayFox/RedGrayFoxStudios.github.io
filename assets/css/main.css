@@ -1664,7 +1664,7 @@ input, select, textarea {
     top: 20px;
     right: 30px;
     z-index: 1000;
-    padding: 4px 10px;
+    padding: 4px 8px;
     border: none;
     text-decoration: none;
     color: white;
@@ -1675,7 +1675,7 @@ input, select, textarea {
 }
 
 .lang-switcher:hover {
-    background-color: #555555;
+    background-color: #07002b;
     color: white;
 
 
