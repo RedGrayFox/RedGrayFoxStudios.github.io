@@ -1,6 +1,48 @@
 
 [
   {
+    "id": 5,
+    "fecha": "2026-09-07",
+    "categoria": "Desarrollo",
+    "imagen": "devlog-img/grass orange.png",
+    "es": {
+      "titulo": "Update del proyecto COLAPSO sprite de pasto naranja",
+      "resumen": "Definiendo el concepto visual, la estética.",
+    },
+    "en": {
+      "titulo": "project COLLAPSE update - orange grass sprite",
+      "resumen": "Defining the visual concept aesthetics."
+    }
+  },
+  {
+    "id": 4,
+    "fecha": "2026-09-07",
+    "categoria": "Desarrollo",
+    "imagen": "devlog-img/grass yellow.png",
+    "es": {
+      "titulo": "Update del proyecto COLAPSO sprite de pasto amarillo",
+      "resumen": "Definiendo el concepto visual, la estética."
+    },
+    "en": {
+      "titulo": "project COLLAPSE update - yellow grass sprite",
+      "resumen": "Defining the visual concept aesthetics."
+    }
+  },
+  {
+    "id": 3,
+    "fecha": "2026-09-07",
+    "categoria": "Desarrollo",
+    "imagen": "devlog-img/grass green.png",
+    "es": {
+      "titulo": "Update del proyecto COLAPSO sprite de pasto verde",
+      "resumen": "Definiendo el concepto visual, la estética."
+    },
+    "en": {
+      "titulo": "project COLLAPSE update - green grass sprites",
+      "resumen": "Defining the visual concept aesthetics."
+    }
+  },
+  {
     "id": 2,
     "fecha": "2026-09-06",
     "categoria": "Desarrollo",
@@ -10,7 +52,7 @@
       "resumen": "Definiendo el concepto visual, la estética."
     },
     "en": {
-      "titulo": "PROJECT COLLAPSE UPDATE - ettes shop sprite",
+      "titulo": "project COLLAPSE update - ettes shop sprite",
       "resumen": "Defining the visual concept aesthetics."
     }
   },
@@ -23,7 +65,7 @@
       "resumen": "Definiendo el concepto visual y la estética."
     },
     "en": {
-      "titulo": "PROJECT COLLAPSE START",
+      "titulo": "project COLLAPSE start",
       "resumen": "Defining the visual concept and aesthetics."
     }
   }
