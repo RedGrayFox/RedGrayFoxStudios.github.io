@@ -1679,29 +1679,28 @@ input, select, textarea {
     color: white;
 
 
-/* Layout para movil SOLO en vertical (Portrait) */
+/* Layout responsivo estricto para móvil en vertical */
 @media screen and (orientation: portrait) and (max-width: 768px) {
-  .main-container {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .left-col,
-  .right-col {
+  /* Desactiva la estructura horizontal */
+  .main-container,
+  main,
+  div:has(> .left-col) {
+    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    box-sizing: border-box;
-    margin-bottom: 25px;
   }
-}
 
-  /* Aplica ancho completo a las dos columnas */
+  /* Fuerza ancho completo para que no queden alargadas */
   .left-col,
   .right-col {
+    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    box-sizing: border-box;
-    margin-bottom: 20px;
+    min-width: 100% !important;
+    flex: none !important;
+    box-sizing: border-box !important;
+    margin-bottom: 35px !important;
+    float: none !important;
   }
 }
 
