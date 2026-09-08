@@ -201,7 +201,7 @@
             <h2 class="lang" data-es="DESARROLLO" data-en="DEVELOPMENT">DESARROLLO</h2>
             <hr style="border: 0.5px solid var(--panel-border); margin-bottom: 20px;">
 
-<video id="studio-intro" autoplay muted playsinline width="100%" style="border-radius: 4px; border: 1px solid var(--panel-border); margin-bottom: 20px;">
+<video id="studio-intro" playsinline width="100%" style="cursor: pointer; border-radius: 4px; border: 1px solid var(--panel-border); margin-bottom: 20px;">
   <source src="../devlog-media/RedGrayFoxStudio.mp4" type="video/mp4">
   Tu navegador no soporta el reproductor de video.
 </video>
@@ -312,7 +312,16 @@
         .catch(err => console.error('Error cargando devlog:', err));
 </script>
 
-
+<script>  const studioVideo = document.getElementById('studio-intro');
+  studioVideo.addEventListener('click', () => {
+    if (studioVideo.paused) {
+      studioVideo.muted = false; // Activa el audio
+      studioVideo.play();        // Inicia el video
+    } else {
+      studioVideo.pause();       // Lo pausa si le vuelven a dar clic
+    }
+  });
+</script>
     
 </body>
 </html>
