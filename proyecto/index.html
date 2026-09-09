@@ -461,6 +461,26 @@
     }
   });
 </script>
+
+
+<script>
+function toggleLikeMenu() {
+    document.getElementById("likeDropdownMenu").classList.toggle("show-dropdown");
+}
+
+/* Cierra el menú desplegable si el usuario hace clic en cualquier otro lado */
+window.onclick = function(event) {
+    if (!event.target.matches('.universal-like-btn')) {
+        var dropdowns = document.getElementsByClassName("like-dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show-dropdown')) {
+                openDropdown.classList.remove('show-dropdown');
+            }
+        }
+    }
+}
+</script>
     
 </body>
 </html>
