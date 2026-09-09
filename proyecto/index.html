@@ -233,7 +233,71 @@
         }
 
 
-
+            /* --- BOTÓN UNIVERSAL DE APOYO Y REDES --- */
+        .universal-like-container {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+/* Botón principal */
+        .universal-like-btn {
+            background-color: #252830;
+            color: #ffffff;
+            padding: 12px 20px;
+            font-size: 0.95em;
+            font-weight: bold;
+            border: 1px solid var(--panel-border, #3b3f4d);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            width: 100%;
+        }
+.universal-like-btn:hover {
+    background-color: #323642;
+    border-color: #52586b;
+}
+/* Menú desplegable oculto */
+        .like-dropdown-content {
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1e2026;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--panel-border, #3b3f4d);
+            border-radius: 6px;
+            z-index: 1000;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+/* Enlaces dentro del desplegable */
+        .like-dropdown-content a {
+            color: #e1e1e1;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-size: 0.9em;
+            border-bottom: 1px solid #2a2d37;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+.like-dropdown-content a:last-child {
+    border-bottom: none;
+}
+.like-dropdown-content a:hover {
+    background-color: #2b2e38;
+    color: #ffffff;
+}
+/* Mostrar menú con JavaScript */
+        .show-dropdown {
+            display: block;
+        }
+        
+        
         
     </style>
 </head>
