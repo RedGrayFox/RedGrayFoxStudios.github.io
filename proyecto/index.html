@@ -177,6 +177,33 @@
     }
   }
     
+
+        /* Corrección para pantalla vertical en móviles */
+        @media screen and (orientation: portrait) and (max-width: 768px) {
+            body {
+                height: auto !important;
+                overflow-y: auto !important;
+            }
+
+            .main-container {
+                display: block !important;
+                height: auto !important;
+                padding: 10px !important;
+            }
+
+            .left-col,
+            .right-col {
+                width: 100% !important;
+                height: auto !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                margin-bottom: 20px !important;
+                border-radius: 8px !important;
+                box-sizing: border-box !important;
+                overflow: visible !important;
+            }
+        }
+
         
     </style>
 </head>
