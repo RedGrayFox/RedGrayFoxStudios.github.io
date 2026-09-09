@@ -178,12 +178,14 @@
   }
     
 
-        /* Corrección para pantalla vertical en móviles */
+       /* Corrección para pantalla vertical en móviles */
         @media screen and (orientation: portrait) and (max-width: 768px) {
-            body {
-                height: auto !important;
-                overflow-y: auto !important;
-            }
+         html, body {
+    height: auto !important;
+    overflow-y: auto !important;
+    overscroll-behavior-y: contain !important;
+}
+
 
             .main-container {
                 display: block !important;
