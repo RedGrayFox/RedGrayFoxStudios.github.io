@@ -178,7 +178,7 @@
   }
     
 
-         /* Corrección para pantalla vertical en móviles */
+            /* Corrección para pantalla vertical en móviles */
         @media screen and (orientation: portrait) and (max-width: 768px) {
             html {
                 height: auto !important;
@@ -191,8 +191,25 @@
                 min-height: 100% !important;
                 overflow-x: hidden !important;
                 overflow-y: auto !important;
-                background-attachment: scroll !important;
-                background-size: 100vw 100vh !important;
+                background-image: none !important;
+            }
+
+            /* Capa de fondo estática que no rompe el scroll ni el refresh */
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: -1;
+                background-color: var(--bg-dark);
+                background-image:
+                    radial-gradient(circle at 50% 50%, rgba(255, 42, 75, 0.15) 0%, transparent 60%),
+                    url('../images/dbgp1.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
             }
 
             .main-container {
@@ -214,6 +231,7 @@
                 overflow: visible !important;
             }
         }
+
 
 
         
