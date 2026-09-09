@@ -178,19 +178,27 @@
   }
     
 
-       /* Corrección para pantalla vertical en móviles */
+         /* Corrección para pantalla vertical en móviles */
         @media screen and (orientation: portrait) and (max-width: 768px) {
-         html, body {
-    height: auto !important;
-    overflow-y: auto !important;
-    overscroll-behavior-y: contain !important;
-}
+            html {
+                height: auto !important;
+                overflow-x: hidden !important;
+                overflow-y: auto !important;
+            }
 
+            body {
+                height: auto !important;
+                min-height: 100% !important;
+                overflow-x: hidden !important;
+                overflow-y: auto !important;
+                background-attachment: scroll !important; /* Desbloquea el scroll táctil en móviles */
+            }
 
             .main-container {
                 display: block !important;
                 height: auto !important;
                 padding: 10px !important;
+                overflow: visible !important;
             }
 
             .left-col,
@@ -205,6 +213,7 @@
                 overflow: visible !important;
             }
         }
+
 
         
     </style>
