@@ -510,6 +510,34 @@ window.addEventListener('load', () => {
     }
 });
 </script>
+
+
+<script>
+document.getElementById('share-btn')?.addEventListener('click', async () => {
+  const shareData = {
+    title: 'RedGrayFox Studio',
+    text: 'Check out RedGrayFox Studio!',
+    url: window.location.href
+  };
+  const txt = document.getElementById('share-text');
+  
+  if (navigator.share) {
+    try { 
+      await navigator.share(shareData); 
+    } catch (err) {
+      // El usuario canceló la acción de compartir
+    }
+  } else {
+    // Alternativa para PC si el navegador no tiene menú nativo
+    navigator.clipboard.writeText(window.location.href);
+    txt.textContent = 'Copied!';
+    setTimeout(() => { 
+      txt.textContent = 'Share'; 
+    }, 2000);
+  }
+});
+</script>
+		
 		
 	</body>
 </html>
