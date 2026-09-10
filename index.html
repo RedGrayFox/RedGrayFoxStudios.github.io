@@ -450,22 +450,19 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
     </script>
 
 
-<!-- Librería para fuegos artificiales -->
+<!-- Librería para efectos -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
 window.addEventListener('load', () => {
-    // 1. Buscamos el ícono exacto dentro del logo
     const gamepadIcon = document.querySelector('#header .logo');
     let clickCount = 0;
 
     if (gamepadIcon) {
-        // Aseguramos que responda a clics y toque táctil en móviles
         gamepadIcon.style.cursor = 'pointer';
         gamepadIcon.style.pointerEvents = 'auto';
 
-        const dispararEfecto = (e) => {
-            // Evita que la plantilla intercepte o cancele el evento
+        const dispararFuegos = (e) => {
             if (e) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -473,44 +470,43 @@ window.addEventListener('load', () => {
 
             clickCount++;
 
-            // Vibración inmediata en teléfonos (intento directo)
             if (navigator.vibrate) {
-                try {
-                    navigator.vibrate(80);
-                } catch (err) {}
+                try { navigator.vibrate(80); } catch (err) {}
             }
 
-            // Micro-animación visual de respuesta al clic
             gamepadIcon.style.transform = 'scale(0.85)';
             setTimeout(() => { gamepadIcon.style.transform = 'scale(1)'; }, 100);
 
-            // Al llegar a los 10 clics
             if (clickCount >= 10) {
                 const totalExplosiones = 15;
                 const intervaloMs = 160;
 
                 for (let i = 0; i < totalExplosiones; i++) {
                     setTimeout(() => {
+                        // Disparo con formas de destellos/estrellas y colores de fuego
                         confetti({
-                            particleCount: 50,
-                            spread: 90,
-                            startVelocity: 35,
+                            particleCount: 40,
+                            spread: 100,
+                            startVelocity: 40,
+                            ticks: 200, // Hace que las partículas duren más tiempo en pantalla
+                            gravity: 0.8, // Caída más lenta tipo chispa
+                            shapes: ['star', 'circle'], // Formas de estrellas y círculos (no papelitos)
+                            colors: ['#ff0000', '#ffd700', '#ff4500', '#ffffff', '#ff8c00'], // Paleta de fuego
                             origin: {
-                                x: Math.random() * 0.8 + 0.1, // Abarca todo el ancho (10% al 90%)
-                                y: Math.random() * 0.5 + 0.15 // Abarca la altura visible
+                                x: Math.random() * 0.8 + 0.1,
+                                y: Math.random() * 0.5 + 0.15
                             },
-                            zIndex: 999999 // Súper elevado para que no quede detrás del fondo
+                            zIndex: 999999
                         });
                     }, i * intervaloMs);
                 }
 
-                clickCount = 0; // Reinicia el contador
+                clickCount = 0;
             }
         };
 
-        // Escuchamos tanto el clic como el toque táctil directo en móvil
-        gamepadIcon.addEventListener('click', dispararEfecto, true);
-        gamepadIcon.addEventListener('touchstart', dispararEfecto, { passive: false });
+        gamepadIcon.addEventListener('click', dispararFuegos, true);
+        gamepadIcon.addEventListener('touchstart', dispararFuegos, { passive: false });
     }
 });
 </script>
