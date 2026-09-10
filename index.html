@@ -494,20 +494,26 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
     </script>
 
 
-    <script>
+    <!-- Botón de Like flotante e independiente -->
+<div style="position: fixed !important; top: 20px !important; left: 20px !important; width: auto !important; height: auto !important; z-index: 9999999 !important; pointer-events: auto !important;">
+    <button id="like-counter-btn" onclick="handleGamepadClick(event)" style="margin: 0 !important; padding: 8px 16px !important; background-color: #D12E2E !important; color: #ffffff !important; border: none !important; border-radius: 20px !important; display: flex !important; align-items: center !important; gap: 6px !important; font-size: 14px !important; font-weight: bold !important; cursor: pointer !important; box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;">
+        <span id="like-count">0</span>
+    </button>
+</div>
+
+<script>
 let clickCount = 0;
 let clickTimer = null;
 
 function handleGamepadClick(event) {
+    if (event) event.stopPropagation();
     clickCount++;
 
     const counterElement = document.getElementById('like-count');
     if (counterElement) counterElement.innerText = clickCount;
 
-    // Vibración corta si es móvil
     if ("vibrate" in navigator) navigator.vibrate(40);
 
-    // Al llegar a 10 clics, dispara los destellos
     if (clickCount >= 10) {
         if ("vibrate" in navigator) navigator.vibrate([100, 50, 150]);
         triggerFireworks(event);
@@ -521,7 +527,6 @@ function handleGamepadClick(event) {
         return;
     }
 
-    // Reinicia el contador si deja de tocar por 1.5s
     clearTimeout(clickTimer);
     clickTimer = setTimeout(() => {
         clickCount = 0;
@@ -531,22 +536,22 @@ function handleGamepadClick(event) {
 
 function triggerFireworks(event) {
     const colors = ['#D12E2E', '#ffffff', '#ffd700', '#ff8c00', '#00e5ff'];
-    const x = event.clientX || window.innerWidth / 2;
-    const y = event.clientY || window.innerHeight / 2;
+    const x = event ? (event.clientX || window.innerWidth / 2) : window.innerWidth / 2;
+    const y = event ? (event.clientY || window.innerHeight / 2) : window.innerHeight / 2;
 
     for (let i = 0; i < 30; i++) {
         const particle = document.createElement('div');
         particle.style.cssText = `
-            position: fixed;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 999999;
-            left: ${x}px;
-            top: ${y}px;
-            background-color: ${colors[Math.floor(Math.random() * colors.length)]};
-            transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+            position: fixed !important;
+            width: 8px !important;
+            height: 8px !important;
+            border-radius: 50% !important;
+            pointer-events: none !important;
+            z-index: 9999999 !important;
+            left: ${x}px !important;
+            top: ${y}px !important;
+            background-color: ${colors[Math.floor(Math.random() * colors.length)]} !important;
+            transition: transform 0.8s ease-out, opacity 0.8s ease-out !important;
         `;
 
         document.body.appendChild(particle);
@@ -564,6 +569,8 @@ function triggerFireworks(event) {
         setTimeout(() => particle.remove(), 800);
     }
 }
+
+	
 </script>
 
 		
