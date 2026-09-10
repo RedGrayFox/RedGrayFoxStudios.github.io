@@ -449,5 +449,17 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
     });
 							
     </script>
+
+<script>
+	  const gamepadBtn = document.querySelector('.logo .icon');
+
+	  if (gamepadBtn) {
+	    gamepadBtn.addEventListener('click', () => {
+	      gamepadBtn.classList.remove('gamepad-wave-active');
+	      void gamepadBtn.offsetWidth; 
+	      gamepadBtn.classList.add('gamepad-wave-active');
+	    });
+	  }
+	</script>
 	</body>
 </html>
