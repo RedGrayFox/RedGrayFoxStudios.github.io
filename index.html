@@ -450,11 +450,39 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 let clickCount = 0;
 let clickTimer = null;
 
+// Inyectar el CSS de la animación automáticamente
+if (!document.getElementById('fireworks-style')) {
+    const style = document.createElement('style');
+    style.id = 'fireworks-style';
+    style.innerHTML = `
+        @keyframes fireworkParticle {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--dx), var(--dy)) scale(0);
+                opacity: 0;
+            }
+        }
+        .firework-particle {
+            position: fixed !important;
+            width: 8px !important;
+            height: 8px !important;
+            border-radius: 50% !important;
+            pointer-events: none !important;
+            z-index: 9999999 !important;
+            animation: fireworkParticle 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards !important;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
 function handleGamepadClick(event) {
     if (event) event.stopPropagation();
     clickCount++;
 
-    // Vibración visual sutil en el logo cuando lo tocan
+    // 1. Vibración visual sutil en el logo cuando lo tocan
     const logoDiv = document.querySelector('.logo');
     if (logoDiv) {
         const randomX = (Math.random() - 0.5) * 10;
@@ -469,10 +497,10 @@ function handleGamepadClick(event) {
         }, 80);
     }
 
-    // Vibración háptica en teléfonos
+    // 2. Vibración háptica en celulares
     if ("vibrate" in navigator) navigator.vibrate(35);
 
-    // Al acumular 10 toques
+    // 3. Al acumular 10 toques
     if (clickCount >= 10) {
         if ("vibrate" in navigator) navigator.vibrate([80, 40, 120]);
         triggerFireworks(event);
@@ -490,36 +518,29 @@ function handleGamepadClick(event) {
 
 function triggerFireworks(event) {
     const colors = ['#D12E2E', '#ffffff', '#ffd700', '#ff8c00', '#00e5ff', '#ff007f'];
+    
+    // Obtener la posición del toque o el centro si no existe
     const x = event ? (event.clientX || window.innerWidth / 2) : window.innerWidth / 2;
     const y = event ? (event.clientY || window.innerHeight / 2) : window.innerHeight / 2;
 
     for (let i = 0; i < 50; i++) {
         const particle = document.createElement('div');
-        particle.style.cssText = `
-            position: fixed !important;
-            width: 8px !important;
-            height: 8px !important;
-            border-radius: 50% !important;
-            pointer-events: none !important;
-            z-index: 9999999 !important;
-            left: ${x}px !important;
-            top: ${y}px !important;
-            background-color: ${colors[Math.floor(Math.random() * colors.length)]} !important;
-            box-shadow: 0 0 6px ${colors[Math.floor(Math.random() * colors.length)]} !important;
-            transition: transform 0.8s cubic-bezier(0.1, 0.8, 0.3, 1), opacity 0.8s ease-out !important;
-        `;
-
-        document.body.appendChild(particle);
+        particle.className = 'firework-particle';
 
         const angle = Math.random() * Math.PI * 2;
-        const velocity = 50 + Math.random() * 100;
-        const dx = Math.cos(angle) * velocity;
-        const dy = Math.sin(angle) * velocity;
+        const velocity = 60 + Math.random() * 120;
+        const dx = `${Math.cos(angle) * velocity}px`;
+        const dy = `${Math.sin(angle) * velocity}px`;
+        const color = colors[Math.floor(Math.random() * colors.length)];
 
-        requestAnimationFrame(() => {
-            particle.style.transform = `translate(${dx}px, ${dy}px) scale(0)`;
-            particle.style.opacity = '0';
-        });
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+        particle.style.backgroundColor = color;
+        particle.style.boxShadow = `0 0 8px ${color}`;
+        particle.style.setProperty('--dx', dx);
+        particle.style.setProperty('--dy', dy);
+
+        document.body.appendChild(particle);
 
         setTimeout(() => particle.remove(), 800);
     }
