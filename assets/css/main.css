@@ -1677,29 +1677,9 @@ input, select, textarea {
 .lang-switcher:hover {
     background-color: #07002b;
     color: white;
-}
 
-.share-switcher {
-  position: fixed;
-  top: 20px;
-  left: 30px;
-  z-index: 1000;
-  padding: 4px 8px;
-  border: none;
-  text-decoration: none;
-  color: white;
-  background-color: #D12E2E;
-  border-radius: 20px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-.share-switcher:hover {
-  background-color: #07002b;
-  color: white;
-}
-	
+
 /* Layout responsivo estricto para móvil en vertical */
 @media screen and (orientation: portrait) and (max-width: 768px) {
   /* Desactiva la estructura horizontal */
@@ -1741,5 +1721,5 @@ input, select, textarea {
   }
 }
 
-
+}
 /* Forzar nuevo deploy */
