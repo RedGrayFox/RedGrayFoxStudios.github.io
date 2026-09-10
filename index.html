@@ -446,104 +446,116 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 
 		<script>
-let clickCount = 0;
-let clickTimer = null;
+(function() {
+    let clickCount = 0;
+    let clickTimer = null;
 
-// Inyectar el CSS de la animación automáticamente
-if (!document.getElementById('fireworks-style')) {
-    const style = document.createElement('style');
-    style.id = 'fireworks-style';
-    style.innerHTML = `
-        @keyframes fireworkParticle {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 1;
+    // Inyectar estilos de partículas si no existen
+    if (!document.getElementById('fireworks-style')) {
+        const style = document.createElement('style');
+        style.id = 'fireworks-style';
+        style.innerHTML = `
+            @keyframes fireworkParticle {
+                0% { transform: translate(0, 0) scale(1); opacity: 1; }
+                100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
             }
-            100% {
-                transform: translate(var(--dx), var(--dy)) scale(0);
-                opacity: 0;
+            .firework-particle {
+                position: fixed !important;
+                width: 10px !important;
+                height: 10px !important;
+                border-radius: 50% !important;
+                pointer-events: none !important;
+                z-index: 99999999 !important;
+                animation: fireworkParticle 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards !important;
             }
+        `;
+        document.head.appendChild(style);
+    }
+
+    function initGamepadEffect() {
+        // Buscar el logo o el icono de forma amplia
+        const logo = document.querySelector('.logo') || document.querySelector('.fa-gamepad');
+        if (!logo) return;
+
+        // Encontrar el contenedor clickeable principal
+        const target = logo.closest('.logo') || logo;
+        target.style.cursor = 'pointer';
+
+        target.onclick = function(event) {
+            event.stopPropagation();
+            clickCount++;
+
+            // 1. Vibración visual (sacudida)
+            const randomX = (Math.random() - 0.5) * 16;
+            const randomY = (Math.random() - 0.5) * 16;
+            const randomRot = (Math.random() - 0.5) * 25;
+
+            target.style.transition = 'transform 0.05s ease';
+            target.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRot}deg)`;
+
+            setTimeout(() => {
+                target.style.transform = 'translate(0, 0) rotate(0deg)';
+            }, 80);
+
+            // 2. Vibración móvil
+            if (navigator && typeof navigator.vibrate === 'function') {
+                navigator.vibrate(35);
+            }
+
+            // 3. Destellos a los 10 clics
+            if (clickCount >= 10) {
+                if (navigator && typeof navigator.vibrate === 'function') {
+                    navigator.vibrate([80, 40, 120]);
+                }
+                triggerFireworks(event, target);
+                clickCount = 0;
+                clearTimeout(clickTimer);
+                return;
+            }
+
+            clearTimeout(clickTimer);
+            clickTimer = setTimeout(() => {
+                clickCount = 0;
+            }, 1500);
+        };
+    }
+
+    function triggerFireworks(event, element) {
+        const colors = ['#D12E2E', '#ffffff', '#ffd700', '#ff8c00', '#00e5ff', '#ff007f'];
+        const rect = element.getBoundingClientRect();
+        const x = (event && event.clientX) ? event.clientX : (rect.left + rect.width / 2);
+        const y = (event && event.clientY) ? event.clientY : (rect.top + rect.height / 2);
+
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'firework-particle';
+
+            const angle = Math.random() * Math.PI * 2;
+            const velocity = 80 + Math.random() * 150;
+            const dx = `${Math.cos(angle) * velocity}px`;
+            const dy = `${Math.sin(angle) * velocity}px`;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            particle.style.backgroundColor = color;
+            particle.style.boxShadow = `0 0 10px ${color}`;
+            particle.style.setProperty('--dx', dx);
+            particle.style.setProperty('--dy', dy);
+
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 800);
         }
-        .firework-particle {
-            position: fixed !important;
-            width: 8px !important;
-            height: 8px !important;
-            border-radius: 50% !important;
-            pointer-events: none !important;
-            z-index: 9999999 !important;
-            animation: fireworkParticle 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards !important;
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-function handleGamepadClick(event) {
-    if (event) event.stopPropagation();
-    clickCount++;
-
-    // 1. Vibración visual sutil en el logo cuando lo tocan
-    const logoDiv = document.querySelector('.logo');
-    if (logoDiv) {
-        const randomX = (Math.random() - 0.5) * 10;
-        const randomY = (Math.random() - 0.5) * 10;
-        const randomRot = (Math.random() - 0.5) * 15;
-
-        logoDiv.style.transition = 'transform 0.05s ease';
-        logoDiv.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRot}deg)`;
-
-        setTimeout(() => {
-            logoDiv.style.transform = 'translate(0, 0) rotate(0deg)';
-        }, 80);
     }
 
-    // 2. Vibración háptica en celulares
-    if ("vibrate" in navigator) navigator.vibrate(35);
-
-    // 3. Al acumular 10 toques
-    if (clickCount >= 10) {
-        if ("vibrate" in navigator) navigator.vibrate([80, 40, 120]);
-        triggerFireworks(event);
-        clickCount = 0;
-        clearTimeout(clickTimer);
-        return;
+    // Intentar inicializar de inmediato y también al cargar la página completa
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initGamepadEffect);
+    } else {
+        initGamepadEffect();
     }
-
-    // Reinicia el contador si dejan de presionar por 1.5s
-    clearTimeout(clickTimer);
-    clickTimer = setTimeout(() => {
-        clickCount = 0;
-    }, 1500);
-}
-
-function triggerFireworks(event) {
-    const colors = ['#D12E2E', '#ffffff', '#ffd700', '#ff8c00', '#00e5ff', '#ff007f'];
-    
-    // Obtener la posición del toque o el centro si no existe
-    const x = event ? (event.clientX || window.innerWidth / 2) : window.innerWidth / 2;
-    const y = event ? (event.clientY || window.innerHeight / 2) : window.innerHeight / 2;
-
-    for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'firework-particle';
-
-        const angle = Math.random() * Math.PI * 2;
-        const velocity = 60 + Math.random() * 120;
-        const dx = `${Math.cos(angle) * velocity}px`;
-        const dy = `${Math.sin(angle) * velocity}px`;
-        const color = colors[Math.floor(Math.random() * colors.length)];
-
-        particle.style.left = `${x}px`;
-        particle.style.top = `${y}px`;
-        particle.style.backgroundColor = color;
-        particle.style.boxShadow = `0 0 8px ${color}`;
-        particle.style.setProperty('--dx', dx);
-        particle.style.setProperty('--dy', dy);
-
-        document.body.appendChild(particle);
-
-        setTimeout(() => particle.remove(), 800);
-    }
-}
+    window.onload = initGamepadEffect;
+})();
 </script>
 		
 	</body>
