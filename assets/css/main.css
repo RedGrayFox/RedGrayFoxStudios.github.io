@@ -1677,6 +1677,7 @@ input, select, textarea {
 .lang-switcher:hover {
     background-color: #07002b;
     color: white;
+}
 
 .share-switcher {
   position: fixed;
@@ -1698,7 +1699,7 @@ input, select, textarea {
   background-color: #07002b;
   color: white;
 }
-
+	
 /* Layout responsivo estricto para móvil en vertical */
 @media screen and (orientation: portrait) and (max-width: 768px) {
   /* Desactiva la estructura horizontal */
