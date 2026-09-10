@@ -22,8 +22,7 @@
   🔊
 </button>
 
-<a href="javascript:void(0)" onclick="navigator.clipboard.writeText(window.location.href); alert('¡Enlace copiado!');" class="share-switcher">↪</a>
-<a href="../index.html" class="lang-switcher">EN</a>
+                <a href="../index.html" class="lang-switcher">EN</a>
 
 		
 		<!-- Wrapper -->
@@ -97,9 +96,10 @@
 								<h2 class="major">Nosotros</h2>
 								<span class="image main"><img src="../images/pic03.jpg" alt="" /></span>
 								<p>Impulsado por la visión, diseñado para los jugadores.</p>
-                                <p>RedGrayFox Studio nació de una convicción sencilla: que la innovación florece en la independencia. No solo creamos videojuegos, sino que también contribuimos activamente a la escena independiente, colaborando para impulsar el desarrollo de todo el medio.</p>
-
-								
+                                                                <p>RedGrayFox Studio nació de una convicción sencilla: que la innovación florece en la independencia. No solo creamos videojuegos, sino que también contribuimos activamente a la escena independiente, colaborando para impulsar el desarrollo de todo el medio.</p>
+						
+							
+							
 							<div class="team-credits" style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px;">
 	                        <p style="margin: 0 !important;"><strong>Desarrollador Principal &amp; Fundador:</strong> Julio C. Torres (Gray)</p>
                          	<p style="font-size: 0.9em; opacity: 0.8;">Dirección creativa, Programación, Arte &amp; Diseño de sonido.</p>
@@ -115,17 +115,7 @@
                          	<p style="font-size: 0.9em; opacity: 0.8;">Arte Conpceptual, Color, &amp; Copiloto.</p>
                             </div>
 
-                          
-							<!-- INVITACIÓN AL EQUIPO -->
-<div style="margin-top: 25px; padding: 18px; border: 1px dashed rgba(209, 46, 46, 0.6); border-radius: 8px; background: rgba(209, 46, 46, 0.08); text-align: center;">
-  <h3 style="margin-bottom: 10px; color: #ffffff; font-size: 1.1em;">¿Te gustaría formar parte de nuestro equipo?</h3>
-  <p style="font-size: 0.9em; line-height: 1.6; margin-bottom: 10px;">
-    En RedGrayFox Studio siempre nos entusiasma conocer a personas apasionadas por el mundo de los videojuegos. Si tienes interés en desarrollarte como programador, artista 2D/3D, diseñador de sonido, guionista o en cualquier otra área que implique crear un juego desde cero, este espacio es para ti.
-  </p>
-  <p style="font-size: 0.9em; margin-bottom: 0;">
-    Si te llama la atención la idea y quieres sumarte a nuestro equipo, escríbenos a nuestro correo: <a href="mailto:redgrayfoxstudio@gmail.com" style="color: #D12E2E; font-weight: bold; text-decoration: underline;">redgrayfoxstudio@gmail.com</a>. ¡Nos encantaría conversar contigo y ver qué podemos crear juntos!
-  </p>
-</div>	
+							
 							
 							
 							</article>
@@ -467,18 +457,69 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         }
     });
 
-    </script>	
+    </script>
+
+
+<!-- Librería para efectos -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
-	  const gamepadBtn = document.querySelector('.logo .icon');
+window.addEventListener('load', () => {
+    const gamepadIcon = document.querySelector('#header .logo');
+    let clickCount = 0;
 
-	  if (gamepadBtn) {
-	    gamepadBtn.addEventListener('click', () => {
-	      gamepadBtn.classList.remove('gamepad-wave-active');
-	      void gamepadBtn.offsetWidth; 
-	      gamepadBtn.classList.add('gamepad-wave-active');
-	    });
-	  }
-	</script>
+    if (gamepadIcon) {
+        gamepadIcon.style.cursor = 'pointer';
+        gamepadIcon.style.pointerEvents = 'auto';
+
+        const dispararFuegos = (e) => {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            clickCount++;
+
+            if (navigator.vibrate) {
+                try { navigator.vibrate(80); } catch (err) {}
+            }
+
+            gamepadIcon.style.transform = 'scale(0.85)';
+            setTimeout(() => { gamepadIcon.style.transform = 'scale(1)'; }, 100);
+
+            if (clickCount >= 10) {
+                const totalExplosiones = 15;
+                const intervaloMs = 160;
+
+                for (let i = 0; i < totalExplosiones; i++) {
+                    setTimeout(() => {
+                        // Disparo con formas de destellos/estrellas y colores de fuego
+                        confetti({
+                            particleCount: 40,
+                            spread: 100,
+                            startVelocity: 40,
+                            ticks: 200, // Hace que las partículas duren más tiempo en pantalla
+                            gravity: 0.8, // Caída más lenta tipo chispa
+                            shapes: ['star', 'circle'], // Formas de estrellas y círculos (no papelitos)
+                            colors: ['#ff0000', '#ffd700', '#ff4500', '#ffffff', '#ff8c00'], // Paleta de fuego
+                            origin: {
+                                x: Math.random() * 0.8 + 0.1,
+                                y: Math.random() * 0.5 + 0.15
+                            },
+                            zIndex: 999999
+                        });
+                    }, i * intervaloMs);
+                }
+
+                clickCount = 0;
+            }
+        };
+
+        gamepadIcon.addEventListener('click', dispararFuegos, true);
+        gamepadIcon.addEventListener('touchstart', dispararFuegos, { passive: false });
+    }
+});
+</script>
+	
 	</body>
 </html>
