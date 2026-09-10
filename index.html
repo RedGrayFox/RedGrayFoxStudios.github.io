@@ -24,6 +24,56 @@
 
                 <a href="es/index.html" class="lang-switcher">ES</a>
 
+		/* Interacciones y animaciones para el botón de Like */
+.like-switcher:hover {
+    background-color: #07002b;
+    color: white;
+}
+
+.like-switcher:active {
+    transform: scale(0.92);
+}
+
+.floating-like {
+    position: fixed;
+    pointer-events: none;
+    font-size: 24px;
+    z-index: 999999;
+    animation: floatUp 0.8s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px) scale(1.4);
+    }
+}
+
+.sparkle-particle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999999;
+    animation: explode 0.8s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--dx), var(--dy)) scale(0);
+    }
+}
+
 
 		<!-- Wrapper -->
 			<div id="wrapper">
