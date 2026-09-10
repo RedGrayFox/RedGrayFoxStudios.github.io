@@ -1741,5 +1741,18 @@ input, select, textarea {
   }
 }
 
+/* Animación de deformación líquida / ecualizador */
+@keyframes waveJitter {
+  0%   { transform: translate(0, 0) scale(1); border-radius: 50%; }
+  20%  { transform: translate(2px, -3px) scale(1.05); border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
+  40%  { transform: translate(-3px, 1px) scale(0.98); border-radius: 65% 35% 30% 70% / 55% 30% 70% 45%; }
+  60%  { transform: translate(1px, 3px) scale(1.03); border-radius: 40% 60% 54% 46% / 68% 31% 69% 32%; }
+  80%  { transform: translate(-2px, -1px) scale(0.99); border-radius: 58% 42% 38% 62% / 35% 65% 35% 65%; }
+  100% { transform: translate(0, 0) scale(1); border-radius: 50%; }
+}
+
+/* Clase para activar la animación */
+.gamepad-wave-active {
+  animation: waveJitter 0.35s ease-in-out;
 }
 /* Forzar nuevo deploy */
