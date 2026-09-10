@@ -455,7 +455,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Selecciona el área del ícono del gamepad
     const gamepadIcon = document.querySelector('#header .logo');
     let clickCount = 0;
 
@@ -463,12 +462,12 @@ document.addEventListener('DOMContentLoaded', () => {
         gamepadIcon.style.cursor = 'pointer';
 
         gamepadIcon.addEventListener('click', (e) => {
-            // Evita que main.js o la plantilla cancelen el evento
+            // Evita conflictos con la plantilla main.js
             e.stopPropagation();
 
             clickCount++;
 
-            // Vibración en dispositivos móviles soportados
+            // Vibración en móviles (con try-catch seguro)
             if ("vibrate" in navigator) {
                 try {
                     navigator.vibrate(60); 
@@ -479,22 +478,37 @@ document.addEventListener('DOMContentLoaded', () => {
             gamepadIcon.style.transform = 'scale(0.9)';
             setTimeout(() => { gamepadIcon.style.transform = 'scale(1)'; }, 100);
 
-            // Al conteo de 10
+            // Al conteo de 10 clics
             if (clickCount === 10) {
-                confetti({
-                    particleCount: 120,
-                    spread: 100,
-                    origin: { y: 0.6 },
-                    zIndex: 9999
-                });
+                
+                // Configuración profesional: 15 explosiones cada 160ms (~2.4 segundos en total)
+                const totalExplosiones = 15;
+                const intervaloMs = 160;
 
+                for (let i = 0; i < totalExplosiones; i++) {
+                    setTimeout(() => {
+                        confetti({
+                            particleCount: 45,
+                            spread: 80,
+                            startVelocity: 35,
+                            // Coordenadas aleatorias que abarcan toda la pantalla
+                            origin: {
+                                x: Math.random() * 0.8 + 0.1, // 10% al 90% del ancho
+                                y: Math.random() * 0.5 + 0.15 // 15% al 65% del alto
+                            },
+                            zIndex: 9999,
+                            disableForReducedMotion: true
+                        });
+                    }, i * intervaloMs);
+                }
+
+                // Reinicia el contador
                 clickCount = 0;
             }
         });
     }
 });
 </script>
-
 		
 	</body>
 </html>
