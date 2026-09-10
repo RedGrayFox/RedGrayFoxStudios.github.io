@@ -23,10 +23,6 @@
 </button>
 
 
-                <button id="share-btn" class="share-switcher">
-  <i class="fas fa-share-alt"></i> <span id="share-text">Compartir</span>
-</button>
-
 <a href="../index.html" class="lang-switcher">EN</a>
 		
                 <a href="../index.html" class="lang-switcher">EN</a>
@@ -464,94 +460,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         }
     });
 
-    </script>
-
-
-<!-- Librería para efectos -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-<script>
-window.addEventListener('load', () => {
-    const gamepadIcon = document.querySelector('#header .logo');
-    let clickCount = 0;
-
-    if (gamepadIcon) {
-        gamepadIcon.style.cursor = 'pointer';
-        gamepadIcon.style.pointerEvents = 'auto';
-
-        const dispararFuegos = (e) => {
-            if (e) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-
-            clickCount++;
-
-            if (navigator.vibrate) {
-                try { navigator.vibrate(80); } catch (err) {}
-            }
-
-            gamepadIcon.style.transform = 'scale(0.85)';
-            setTimeout(() => { gamepadIcon.style.transform = 'scale(1)'; }, 100);
-
-            if (clickCount >= 10) {
-                const totalExplosiones = 15;
-                const intervaloMs = 160;
-
-                for (let i = 0; i < totalExplosiones; i++) {
-                    setTimeout(() => {
-                        // Disparo con formas de destellos/estrellas y colores de fuego
-                        confetti({
-                            particleCount: 40,
-                            spread: 100,
-                            startVelocity: 40,
-                            ticks: 200, // Hace que las partículas duren más tiempo en pantalla
-                            gravity: 0.8, // Caída más lenta tipo chispa
-                            shapes: ['star', 'circle'], // Formas de estrellas y círculos (no papelitos)
-                            colors: ['#ff0000', '#ffd700', '#ff4500', '#ffffff', '#ff8c00'], // Paleta de fuego
-                            origin: {
-                                x: Math.random() * 0.8 + 0.1,
-                                y: Math.random() * 0.5 + 0.15
-                            },
-                            zIndex: 999999
-                        });
-                    }, i * intervaloMs);
-                }
-
-                clickCount = 0;
-            }
-        };
-
-        gamepadIcon.addEventListener('click', dispararFuegos, true);
-        gamepadIcon.addEventListener('touchstart', dispararFuegos, { passive: false });
-    }
-});
-</script>
-
-
-<script>
-document.getElementById('share-btn')?.addEventListener('click', async () => {
-  const shareData = {
-    title: 'RedGrayFox Studio',
-    text: '¡Echa un vistazo a RedGrayFox Studio!',
-    url: window.location.href
-  };
-  const txt = document.getElementById('share-text');
-  
-  if (navigator.share) {
-    try { 
-      await navigator.share(shareData); 
-    } catch (err) {}
-  } else {
-    navigator.clipboard.writeText(window.location.href);
-    txt.textContent = '¡Copiado!';
-    setTimeout(() => { 
-      txt.textContent = 'Compartir'; 
-    }, 2000);
-  }
-});
-</script>
-		
-	
+    </script>	
 	</body>
 </html>
