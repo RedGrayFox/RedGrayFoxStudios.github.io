@@ -530,7 +530,7 @@ window.addEventListener('load', () => {
 </script>
 
 
-		<!-- Script para la función de Compartir -->
+		<!-- Script for the Share functionality -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const shareBtn = document.getElementById('share-btn');
@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const shareData = {
                 title: document.title,
-                text: '¡Echa un vistazo a RedGrayFox Studio!',
+                text: 'Check out RedGrayFox Studio!',
                 url: window.location.href
             };
 
@@ -547,11 +547,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 try {
                     await navigator.share(shareData);
                 } catch (err) {
-                    console.log('Compartir cancelado');
+                    console.log('Sharing canceled');
                 }
             } else {
                 navigator.clipboard.writeText(window.location.href);
-                alert('¡Enlace copiado al portapapeles!');
+                alert('Link copied to clipboard!');
             }
         });
     }
