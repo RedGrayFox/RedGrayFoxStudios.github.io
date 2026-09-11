@@ -22,6 +22,12 @@
   🔊
 </button>
 
+
+		        <!-- Botón de Compartir (Izquierda) -->
+<button id="share-btn" class="share-switcher" style="position: absolute; top: 1rem; left: 1rem; z-index: 10000; background: transparent; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 4px; color: #ffffff; padding: 0.4rem 0.8rem; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; height: auto; width: auto; line-height: 1;">
+  <i class="fas fa-share" style="font-size: 0.9em;"></i>
+</button>
+		
                 <a href="es/index.html" class="lang-switcher">ES</a>
 
 		<!-- Wrapper -->
@@ -519,6 +525,34 @@ window.addEventListener('load', () => {
 
         gamepadIcon.addEventListener('click', dispararFuegos, true);
         gamepadIcon.addEventListener('touchstart', dispararFuegos, { passive: false });
+    }
+});
+</script>
+
+
+		<!-- Script para la función de Compartir -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const shareBtn = document.getElementById('share-btn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+            const shareData = {
+                title: document.title,
+                text: '¡Echa un vistazo a RedGrayFox Studio!',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (err) {
+                    console.log('Compartir cancelado');
+                }
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('¡Enlace copiado al portapapeles!');
+            }
+        });
     }
 });
 </script>
