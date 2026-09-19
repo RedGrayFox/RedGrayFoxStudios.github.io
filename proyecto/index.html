@@ -1,467 +1,317 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	RedGrayFox Studio
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedGrayFox Studio | Desarrollo</title>
-    <link rel="icon" type="image/png" href="../images/favicon.png" />
-    
-    <style>
-        /* Variables de color */
-        :root {
-            --red-fox: #ff2a4b;
-            --red-glow: rgba(255, 42, 75, 0.4);
-            --silver-metal: #a3a8b5;
-            --bg-dark: #06080e;
-            --panel-bg: rgba(12, 16, 26, 0.75);
-            --panel-border: rgba(163, 168, 181, 0.2);
-        }
+	<head>
+		<title class="lang" data-es="Política de Privacidad - RedGrayFox Studio" data-en="Privacy Policy - RedGrayFox Studio">Política de Privacidad - RedGrayFox Studio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/png" href="../images/favicon.png" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<style>
+			/* Anulación de estilos de la plantilla para visibilidad inmediata */
+			#wrapper {
+				display: flex !important;
+				flex-direction: column !important;
+				align-items: center !important;
+				justify-content: flex-start !important;
+				min-height: 100vh !important;
+				padding: 2rem 1rem !important;
+				z-index: 2 !important;
+				position: relative !important;
+			}
 
-        /* Configuración global de pantalla */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-dark);
-            background-image:
-                radial-gradient(circle at 50% 50%, rgba(255, 42, 75, 0.15) 0%, transparent 60%),
-                url('../images/dbgp1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: #ffffff;
-            height: 100vh;
-            overflow: hidden;
-        }
+			#main {
+				display: block !important;
+				width: 100% !important;
+				max-width: 800px !important;
+				margin: 0 auto !important;
+			}
 
-        /* Encabezado superior */
-        header {
-            height: 70px;
-            background: rgba(8, 10, 16, 0.95);
-            border-bottom: 2px solid var(--red-fox);
-            box-shadow: 0 0 15px var(--red-glow);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 30px;
-            box-sizing: border-box;
-        }
+			/* Barra superior centrada: Título arriba y botones abajo */
+			.header-nav {
+				width: 100%;
+				max-width: 800px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 2rem;
+				text-align: center;
+			}
 
-        .brand h1 {
-            font-size: 1.3rem;
-            margin: 0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+			.studio-logo-btn {
+				text-align: center;
+				margin-bottom: 12px;
+			}
 
-        .brand h1 a {
-            color: #ffffff;
-            text-decoration: none;
-        }
+			.studio-logo-btn a {
+				text-decoration: none !important;
+				border-bottom: none !important;
+				font-size: 2.2rem;
+				font-weight: 700;
+				letter-spacing: 2px;
+			}
 
-        .brand h1 span {
-            color: var(--red-fox);
-        }
+			/* Selector de Idioma (ES / EN) centrado abajo */
+			.lang-switch {
+				display: flex;
+				gap: 10px;
+				justify-content: center;
+			}
 
-        /* Selector de Idioma (ES / EN) */
-        .lang-switch button {
-            background: transparent;
-            border: 1px solid var(--silver-metal);
-            color: #fff;
-            padding: 5px 12px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
+			.lang-switch button {
+				background: transparent;
+				border: 1px solid #a3a8b5;
+				color: #fff;
+				padding: 6px 16px;
+				cursor: pointer;
+				border-radius: 4px;
+				transition: 0.3s;
+				font-weight: bold;
+			}
 
-        .lang-switch button:hover {
-            border-color: var(--red-fox);
-            color: var(--red-fox);
-            box-shadow: 0 0 8px var(--red-glow);
-        }
+			.lang-switch button:hover {
+				border-color: #D12E2E;
+				color: #D12E2E;
+				box-shadow: 0 0 8px rgba(209, 46, 46, 0.4);
+			}
 
-        /* Contenedor Flexbox de 2 Columnas */
-        .main-container {
-            display: flex;
-            height: calc(100vh - 70px);
-            padding: 20px;
-            box-sizing: border-box;
-        }
+			#privacy-card {
+				background: rgba(19, 21, 25, 0.92) !important;
+				border-radius: 8px !important;
+				border: solid 1px rgba(255, 255, 255, 0.2) !important;
+				padding: 3rem 2.5rem !important;
+				color: #ffffff !important;
+				box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+			}
 
-        /* COLUMNA IZQUIERDA: Avances del Proyecto */
-        .left-col {
-            flex: 1;
-            background: var(--panel-bg);
-            border: 1px solid var(--panel-border);
-            border-radius: 8px 0 0 8px;
-            padding: 25px;
-            overflow-y: auto;
-            backdrop-filter: blur(0px);
-            margin-right: 15px;
-            border-right: 2px solid var(--red-fox);
-            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.8);
-        }
+			.privacy-content h2 {
+				color: #ffffff !important;
+				text-align: center;
+				font-size: 1.8rem;
+				margin-bottom: 1.5rem;
+				border-bottom: 2px solid #D12E2E;
+				padding-bottom: 0.5rem;
+			}
 
-        /* COLUMNA DERECHA: Comentarios de Giscus */
-        .right-col {
-            flex: 1;
-            background: var(--panel-bg);
-            border: 1px solid var(--panel-border);
-            border-radius: 0 8px 8px 0;
-            padding: 25px;
-            overflow-y: auto;
-            backdrop-filter: blur(0px);
-            margin-left: 15px;
-            box-shadow: 5px 0 20px rgba(0, 0, 0, 0.8);
-        }
+			.privacy-content h3 {
+				color: #ffffff !important;
+				margin-top: 1.8rem;
+				margin-bottom: 0.8rem;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				padding-bottom: 0.4rem;
+			}
 
-        /* Publicaciones en la columna izquierda */
-        .entry {
-            background: rgba(20, 26, 40, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 6px;
-            padding: 18px;
-            margin-bottom: 25px;
-        }
+			.privacy-content ul {
+				margin-left: 1.2rem;
+				margin-bottom: 1rem;
+			}
 
-        .entry-date {
-            color: var(--red-fox);
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
+			.privacy-content a {
+				color: #D12E2E !important;
+				font-weight: bold;
+			}
 
-        .entry-title {
-            margin: 8px 0 12px 0;
-            color: #fff;
-        }
+			/* Botón con el color rojo de 'Red' y letra blanca fija */
+			.button.btn-red {
+				background-color: #D12E2E !important;
+				color: #ffffff !important;
+				border-color: #D12E2E !important;
+				box-shadow: none !important;
+			}
 
-        .entry img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            border: 1px solid var(--panel-border);
-            margin-top: 10px;
-        }
+			.button.btn-red:hover {
+				background-color: #b02323 !important;
+				border-color: #b02323 !important;
+				color: #ffffff !important;
+			}
 
-        .entry audio {
-            width: 100%;
-            margin-top: 12px;
-        }
+			/* Forzar al fondo animado a permanecer de fondo */
+			#bg {
+				z-index: 1 !important;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.3);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--red-fox);
-            border-radius: 4px;
-        }
+		<div id="wrapper">
+			<!-- Encabezado con Logo centrado y Selector de Idioma debajo -->
+			<div class="header-nav">
+				<div class="studio-logo-btn">
+					<a id="home-link-logo" href="../es/index.html">
+						<span style="color: #D12E2E;">Red</span><span style="color: #777777;">GrayFox</span><span style="color: #ffffff;">Studio</span>
+					</a>
+				</div>
+				<div class="lang-switch">
+					<button onclick="switchLanguage('es')">ES</button>
+					<button onclick="switchLanguage('en')">EN</button>
+				</div>
+			</div>
 
-        /* Aviso de girar pantalla */
-        .rotate-notice {
-            display: none !important;
-            text-align: center !important;
-            width: 100% !important;
-            margin: 10px auto !important;
-            font-size: 0.8rem;
-            color: #a3a8b5;
-        }
+			<!-- Cuadro principal con el texto de la Política de Privacidad -->
+			<div id="main">
+				<div id="privacy-card" class="privacy-content">
+					<h2 class="lang" data-es="Política de Privacidad" data-en="Privacy Policy">Política de Privacidad</h2>
 
-        @media (max-width: 768px) and (orientation: portrait) {
-            .rotate-notice {
-                display: block !important;
-            }
-        }
+					<p class="lang" 
+					   data-es="En RedGrayFox Studio, accesible desde nuestro sitio web, una de nuestras principales prioridades es la privacidad de nuestros visitantes. Este documento contiene los tipos de información que recopilamos y registramos, así como el uso que hacemos de ella." 
+					   data-en="At RedGrayFox Studio, accessible from our website, one of our main priorities is the privacy of our visitors. This document contains types of information that is collected and recorded by us and how we use it.">
+					   En <strong>RedGrayFox Studio</strong>, accesible desde nuestro sitio web, una de nuestras principales prioridades es la privacidad de nuestros visitantes. Este documento contiene los tipos de información que recopilamos y registramos, así como el uso que hacemos de ella.
+					</p>
 
-        @media screen and (orientation: portrait) and (max-width: 768px) {
-            html {
-                height: auto !important;
-                overflow-x: hidden !important;
-                overflow-y: auto !important;
-            }
+					<h3 class="lang" data-es="1. Información que recopilamos" data-en="1. Information We Collect">1. Información que recopilamos</h3>
+					<p class="lang" 
+					   data-es="Si te pones en contacto directamente con nosotros (por ejemplo, a través de nuestro correo electrónico de soporte), es posible que recibamos información adicional sobre ti, como tu nombre, dirección de correo electrónico, el contenido del mensaje y/o archivos adjuntos que nos envíes." 
+					   data-en="If you contact us directly (for example, through our support email), we may receive additional information about you such as your name, email address, the contents of the message and/or attachments you may send us.">
+					   Si te pones en contacto directamente con nosotros (por ejemplo, a través de nuestro correo electrónico de soporte), es posible que recibamos información adicional sobre ti, como tu nombre, dirección de correo electrónico, el contenido del mensaje y/o archivos adjuntos que nos envíes.
+					</p>
 
-            body {
-                height: auto !important;
-                min-height: 100% !important;
-                overflow-x: hidden !important;
-                overflow-y: auto !important;
-                background-image: none !important;
-            }
+					<h3 class="lang" data-es="2. Archivos de registro (Log Files)" data-en="2. Log Files">2. Archivos de registro (Log Files)</h3>
+					<p class="lang" 
+					   data-es="RedGrayFox Studio sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. La información recopilada incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y el número de clics. Esta información no está vinculada a ninguna información que sea personalmente identificable." 
+					   data-en="RedGrayFox Studio follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected includes IP addresses, browser type, Internet Service Provider (ISP), date/time stamp, referring/exit pages, and number of clicks. These are not linked to any information that is personally identifiable.">
+					   RedGrayFox Studio sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. La información recopilada incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y el número de clics. Esta información no está vinculada a ninguna información que sea personalmente identificable.
+					</p>
 
-            body::before {
-                content: "";
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 100vh;
-                z-index: -1;
-                background-color: var(--bg-dark);
-                background-image:
-                    radial-gradient(circle at 50% 50%, rgba(255, 42, 75, 0.15) 0%, transparent 60%),
-                    url('../images/dbgp1.jpg');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
+					<h3 class="lang" data-es="3. Cookies y Tecnologías de Rastreo" data-en="3. Cookies and Tracking Technologies">3. Cookies y Tecnologías de Rastreo</h3>
+					<p class="lang" 
+					   data-es="Al igual que la mayoría de los sitios web, RedGrayFox Studio utiliza 'cookies'. Estas cookies se utilizan para almacenar información, incluidas las preferencias de los visitantes y las páginas del sitio web a las que el usuario accedió. La información se utiliza para optimizar la experiencia de los usuarios al personalizar el contenido de nuestra página web." 
+					   data-en="Like any other website, RedGrayFox Studio uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content.">
+					   Al igual que la mayoría de los sitios web, RedGrayFox Studio utiliza 'cookies'. Estas cookies se utilizan para almacenar información, incluidas las preferencias de los visitantes y las páginas del sitio web a las que el usuario accedió. La información se utiliza para optimizar la experiencia de los usuarios al personalizar el contenido de nuestra página web.
+					</p>
 
-            .main-container {
-                display: block !important;
-                height: auto !important;
-                padding: 10px !important;
-                overflow: visible !important;
-            }
+					<h3 class="lang" data-es="4. Cookie de Google DoubleClick (DART)" data-en="4. Google DoubleClick DART Cookie">4. Cookie de Google DoubleClick (DART)</h3>
+					<p class="lang" 
+					   data-es="Google es uno de los proveedores externos en nuestro sitio. También utiliza cookies, conocidas como cookies de DART, para mostrar anuncios a los visitantes de nuestro sitio en función de su visita a este y a otros sitios en Internet." 
+					   data-en="Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to other sites on the internet.">
+					   Google es uno de los proveedores externos en nuestro sitio. También utiliza cookies, conocidas como cookies de DART, para mostrar anuncios a los visitantes de nuestro sitio en función de su visita a este y a otros sitios en Internet.
+					</p>
+					<ul>
+						<li class="lang" 
+						    data-es="Los proveedores de terceros, incluido Google, utilizan cookies para mostrar anuncios basados en las visitas anteriores del usuario a este sitio web o a otros sitios web." 
+						    data-en="Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to your website or other websites.">
+						    Los proveedores de terceros, incluido Google, utilizan cookies para mostrar anuncios basados en las visitas anteriores del usuario a este sitio web o a otros sitios web.
+						</li>
+						<li class="lang" 
+						    data-es="El uso de cookies de publicidad permite a Google y a sus socios mostrar anuncios basados en las visitas realizadas por los usuarios a sus sitios o a otros sitios de Internet." 
+						    data-en="Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.">
+						    El uso de cookies de publicidad permite a Google y a sus socios mostrar anuncios basados en las visitas realizadas por los usuarios a sus sitios o a otros sitios de Internet.
+						</li>
+						<li>
+							<span class="lang" data-es="Los usuarios pueden inhabilitar la publicidad personalizada dirigiéndose a la " data-en="Users may opt out of personalized advertising by visiting ">Los usuarios pueden inhabilitar la publicidad personalizada dirigiéndose a la </span>
+							<a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" class="lang" data-es="Configuración de anuncios de Google" data-en="Google Ads Settings">Configuración de anuncios de Google</a>.
+						</li>
+						<li>
+							<span class="lang" data-es="Alternativamente, puedes inhabilitar el uso de cookies de terceros para la publicidad personalizada visitando " data-en="Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting ">Alternativamente, puedes inhabilitar el uso de cookies de terceros para la publicidad personalizada visitando </span>
+							<a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.
+						</li>
+					</ul>
 
-            .left-col,
-            .right-col {
-                width: 100% !important;
-                height: auto !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-                margin-bottom: 20px !important;
-                border-radius: 8px !important;
-                box-sizing: border-box !important;
-                overflow: visible !important;
-            }
-        }
+					<h3 class="lang" data-es="5. Políticas de Privacidad de Terceros" data-en="5. Third Party Privacy Policies">5. Políticas de Privacidad de Terceros</h3>
+					<p class="lang" 
+					   data-es="La Política de Privacidad de RedGrayFox Studio no se aplica a otros anunciantes o sitios web. Te aconsejamos consultar las respectivas Políticas de Privacidad de estos servidores de anuncios de terceros para obtener información más detallada sobre sus prácticas e instrucciones de exclusión." 
+					   data-en="RedGrayFox Studio's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.">
+					   La Política de Privacidad de RedGrayFox Studio no se aplica a otros anunciantes o sitios web. Te aconsejamos consultar las respectivas Políticas de Privacidad de estos servidores de anuncios de terceros para obtener información más detallada sobre sus prácticas e instrucciones de exclusión.
+					</p>
 
-        /* BOTÓN UNIVERSAL DE APOYO Y REDES */
-        .universal-like-container {
-            position: relative;
-            display: block;
-            width: 100%;
-            margin-bottom: 25px;
-            text-align: center;
-        }
+					<h3 class="lang" data-es="6. Derechos de Protección de Datos (GDPR / CCPA)" data-en="6. Data Protection Rights (GDPR / CCPA)">6. Derechos de Protección de Datos (GDPR / CCPA)</h3>
+					<p class="lang" 
+					   data-es="Queremos asegurarnos de que estás plenamente consciente de todos tus derechos de protección de datos. Todo usuario tiene derecho a lo siguiente:" 
+					   data-en="We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:">
+					   Queremos asegurarnos de que estás plenamente consciente de todos tus derechos de protección de datos. Todo usuario tiene derecho a lo siguiente:
+					</p>
+					<ul>
+						<li><strong class="lang" data-es="Derecho de acceso:" data-en="The right to access:">Derecho de acceso:</strong> <span class="lang" data-es=" Tienes derecho a solicitar copias de tus datos personales." data-en=" You have the right to request copies of your personal data."> Tienes derecho a solicitar copias de tus datos personales.</span></li>
+						<li><strong class="lang" data-es="Derecho de rectificación:" data-en="The right to rectification:">Derecho de rectificación:</strong> <span class="lang" data-es=" Tienes derecho a solicitar que corrigiamos cualquier información que creas que es inexacta o incompleta." data-en=" You have the right to request that we correct any information you believe is inaccurate or incomplete."> Tienes derecho a solicitar que corrigiamos cualquier información que creas que es inexacta o incompleta.</span></li>
+						<li><strong class="lang" data-es="Derecho de supresión:" data-en="The right to erasure:">Derecho de supresión:</strong> <span class="lang" data-es=" Tienes derecho a solicitar que borremos tus datos personales, bajo ciertas condiciones." data-en=" You have the right to request that we erase your personal data, under certain conditions."> Tienes derecho a solicitar que borremos tus datos personales, bajo ciertas condiciones.</span></li>
+					</ul>
 
-        .universal-like-btn {
-            background-color: #252830;
-            color: #ffffff;
-            padding: 12px 20px;
-            font-size: 0.95em;
-            font-weight: bold;
-            border: 1px solid var(--panel-border, #3b3f4d);
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.2s ease, border-color 0.2s ease;
-            width: 100%;
-        }
+					<h3 class="lang" data-es="7. Información para niños" data-en="7. Children's Information">7. Información para niños</h3>
+					<p class="lang" 
+					   data-es="Protegemos la privacidad de los menores mientras usan Internet. Animamos a los padres y tutores a observar, participar y/o monitorear la actividad en línea de sus hijos. RedGrayFox Studio no recopila a sabiendas ninguna información de identificación personal de niños menores de 13 años." 
+					   data-en="Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. RedGrayFox Studio does not knowingly collect any Personal Identifiable Information from children under the age of 13.">
+					   Protegemos la privacidad de los menores mientras usan Internet. Animamos a los padres y tutores a observar, participar y/o monitorear la actividad en línea de sus hijos. RedGrayFox Studio no recopila a sabiendas ninguna información de identificación personal de niños menores de 13 años.
+					</p>
 
-        .universal-like-btn:hover {
-            background-color: #323642;
-            border-color: #52586b;
-        }
+					<h3 class="lang" data-es="8. Contacto" data-en="8. Contact Us">8. Contacto</h3>
+					<p>
+						<span class="lang" data-es="Si tienes preguntas adicionales o requieres más información sobre nuestra Política de Privacidad, no dudes en contactarnos a través de nuestro correo electrónico: " data-en="If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at: ">Si tienes preguntas adicionales o requieres más información sobre nuestra Política de Privacidad, no dudes en contactarnos a través de nuestro correo electrónico: </span>
+						<a href="mailto:redgrayfoxstudio@gmail.com">redgrayfoxstudio@gmail.com</a>.
+					</p>
 
-        .like-dropdown-content {
-            display: none;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #1e2026;
-            width: 100%;
-            max-width: 300px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--panel-border, #3b3f4d);
-            border-radius: 6px;
-            z-index: 1000;
-            margin-top: 8px;
-            overflow: hidden;
-        }
+					<hr style="border-color: rgba(255, 255, 255, 0.15); margin: 2rem 0;" />
 
-        .like-dropdown-content a {
-            color: #e1e1e1;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            font-size: 0.9em;
-            border-bottom: 1px solid #2a2d37;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
+					<div style="text-align: center;">
+						<a id="home-link-btn" href="../es/index.html" class="button btn-red lang" data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        .like-dropdown-content a:last-child {
-            border-bottom: none;
-        }
+		<!-- Fondo animado del sitio -->
+		<div id="bg"></div>
 
-        .like-dropdown-content a:hover {
-            background-color: #2b2e38;
-            color: #ffffff;
-        }
+		<!-- Scripts indispensables -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		
+		<!-- Lógica de traducción e inicialización -->
+		<script>
+			function switchLanguage(lang) {
+				document.documentElement.lang = lang;
 
-        .show-dropdown {
-            display: block;
-        }
-    </style>
-</head>
-<body>
+				// Actualizar todos los elementos traducibles
+				document.querySelectorAll('.lang').forEach(el => {
+					const text = el.getAttribute(`data-${lang}`);
+					if (text) {
+						if (el.tagName === 'TITLE') {
+							document.title = text;
+						} else {
+							el.innerHTML = text;
+						}
+					}
+				});
 
-    <header>
-        <div class="brand">
-            <h1><a href="../index.html"><span>RED</span><span style="color: #828299;">GrayFox</span>STUDIO</a></h1>
-        </div>
-        <div class="lang-switch">
-            <button onclick="switchLanguage('es')">ES</button>
-            <button onclick="switchLanguage('en')">EN</button>
-        </div>
-    </header>
+				// Actualizar enlaces de regreso al inicio según el idioma
+				const homePath = (lang === 'es') ? '../es/index.html' : '../index.html';
+				const logoLink = document.getElementById('home-link-logo');
+				const btnLink = document.getElementById('home-link-btn');
 
-    <p class="rotate-notice lang" data-es="Gira el dispositivo para una mejor experiencia" data-en="Rotate device for a better experience">Gira el dispositivo para una mejor experiencia</p>
+				if (logoLink) logoLink.href = homePath;
+				if (btnLink) btnLink.href = homePath;
+			}
 
-    <div class="main-container">
-    
-        <!-- COLUMNA IZQUIERDA (DESARROLLO) -->
-        <section class="left-col">
-            <h2 class="lang" data-es="DESARROLLO" data-en="DEVELOPMENT">DESARROLLO</h2>
-            <hr style="border: 0.5px solid var(--panel-border); margin-bottom: 20px;">
+			// Detección automática al cargar la página (por parámetro URL ?lang=es/en o por referrer)
+			document.addEventListener("DOMContentLoaded", function() {
+				const urlParams = new URLSearchParams(window.location.search);
+				let langParam = urlParams.get('lang');
 
-            <video id="studio-intro" playsinline width="100%" style="cursor: pointer; border-radius: 4px; border: 1px solid var(--panel-border); margin-bottom: 20px;">
-              <source src="../devlog-media/RedGrayFoxStudio.mp4" type="video/mp4">
-              Tu navegador no soporta el reproductor de video.
-            </video>
+				if (!langParam) {
+					// Si viene desde la carpeta /es/, establecer español
+					if (document.referrer.includes('/es/')) {
+						langParam = 'es';
+					} else {
+						langParam = 'en';
+					}
+				}
 
-            <script>
-              document.addEventListener('click', function enableAudio() {
-                const video = document.getElementById('studio-intro');
-                if (video) {
-                  video.muted = false;
-                }
-                document.removeEventListener('click', enableAudio);
-              }, { once: true });
-            </script>
-            
-            <div id="devlog-container">
-                <article class="entry">
-                    <span class="entry-date lang" data-es="Actualizaciones" data-en="Updates">Actualizaciones</span>
-                    <h3 class="entry-title lang" data-es="Lógica y Actualización de Sprites" data-en="Sprites & Logic Update">Lógica y Actualización de Sprites</h3>
-                    <p class="lang" data-es="Personajes, movimientos, escenarios, etc." data-en="Characters, movements, scene layout, etc.">Personajes, movimientos, escenarios, etc.</p>
-                </article>
-            </div>
-        </section>
+				switchLanguage(langParam);
+			});
 
-        <!-- COLUMNA DERECHA (SECCIÓN DE COMENTARIOS CON GISCUS) -->
-        <section class="right-col">
-            <h2 class="lang" data-es="COMUNIDAD Y OPINIONES" data-en="COMMUNITY & FEEDBACK">COMMUNITY & FEEDBACK</h2>
-            <hr style="border: 0.5px solid var(--panel-border); margin-bottom: 20px;">
-
-            <!-- BOTÓN UNIVERSAL DE APOYO / PLATAFORMAS -->
-            <div class="universal-like-container">
-                <button type="button" class="universal-like-btn lang" data-es="❤️ Apoyo Por Plataforma" data-en="❤️ Support By Platform" onclick="toggleLikeMenu()">
-                    ❤️ Apoyo Por Plataforma
-                </button>
-
-                <div id="likeDropdownMenu" class="like-dropdown-content">
-                    <a href="https://www.tiktok.com/@redgrayfox_studio" target="_blank" rel="noopener">🎵 TikTok</a>
-                    <a href="https://www.facebook.com/profile.php?id=61578874520344" target="_blank" rel="noopener">👍 Facebook</a>
-                    <a href="https://www.instagram.com/redgrayfox_studio" target="_blank" rel="noopener">📸 Instagram</a>
-                    <a href="https://www.youtube.com/@RedGrayFox" target="_blank" rel="noopener">▶️ YouTube</a>
-                    <a href="https://www.x.com/RedGrayFox" target="_blank" rel="noopener">✖️ X (Twitter)</a>
-                    <a href="https://discord.gg/xxYbZUvq5" target="_blank" rel="noopener">💬 Discord</a>
-                </div>
-            </div>
-
-            <!-- INTEGRACIÓN GISCUS -->
-            <div class="giscus"></div>
-            <script src="https://giscus.app/client.js"
-                    data-repo="RedGrayFox/RedGrayFoxStudios.github.io"
-                    data-repo-id="R_kgDOQRf6nQ"
-                    data-category="General"
-                    data-category-id="DIC_kwDOQRf6nc4DF7cI"
-                    data-mapping="title"
-                    data-strict="1"
-                    data-reactions-enabled="1"
-                    data-emit-metadata="0"
-                    data-input-position="bottom"
-                    data-theme="dark"
-                    data-lang="en"
-                    crossorigin="anonymous"
-                    async>
-            </script>
-
-        </section>
-
-    </div>
-
-    <!-- CAMBIO DE IDIOMA -->
-    <script>
-      function switchLanguage(lang) {
-        document.documentElement.lang = lang;
-
-        document.querySelectorAll('.lang').forEach(el => {
-          el.innerText = el.getAttribute(`data-${lang}`);
-        });
-
-        if (typeof renderDevlog === 'function') {
-          renderDevlog();
-        }
-      }
-    </script>
-
-    <!-- RENDERIZADO DEL DEVLOG -->
-    <script>
-        let devlogData = [];
-        function renderDevlog() {
-            const container = document.getElementById('devlog-container');
-            if (!container || !devlogData.length) return;
-            
-            const currentLang = document.documentElement.lang || 'es';
-            container.innerHTML = devlogData.map(post => {
-                const content = post[currentLang] || post['es'] || {};
-                return `
-                <article class="entry" style="margin-bottom: 20px;">
-                    ${post.imagen ? `<img src="../${post.imagen}" alt="Devlog Image" style="display: block; width: 100%; max-width: 500px; height: auto; margin-bottom: 10px;">` : ''}
-                    <span class="entry-date">${post.fecha}</span>
-                    <h3 class="entry-title">${content.titulo || ''}</h3>
-                    <p>${content.resumen || ''}</p>
-                </article>
-                `;
-            }).join('');
-        }
-
-        fetch('../devlog.json?v=' + new Date().getTime())
-            .then(response => response.json())
-            .then(data => {
-                devlogData = data;
-                renderDevlog();
-            })
-            .catch(err => console.error('Error cargando devlog:', err));
-    </script>
-
-    <!-- CONTROL DEL VIDEO -->
-    <script>
-        const studioVideo = document.getElementById('studio-intro');
-        if (studioVideo) {
-            studioVideo.addEventListener('click', () => {
-                if (studioVideo.paused) {
-                    studioVideo.muted = false;
-                    studioVideo.play();
-                } else {
-                    studioVideo.pause();
-                }
-            });
-        }
-    </script>
-
-    <!-- MENÚ DESPLEGABLE -->
-    <script>
-        function toggleLikeMenu() {
-            document.getElementById("likeDropdownMenu").classList.toggle("show-dropdown");
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.universal-like-btn')) {
-                var dropdowns = document.getElementsByClassName("like-dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show-dropdown')) {
-                        openDropdown.classList.remove('show-dropdown');
-                    }
-                }
-            }
-        }
-    </script>
-    
-</body>
+			(function($) {
+				var $window = $(window);$window.on('load', function() {
+					window.setTimeout(function() {
+						$('body').removeClass('is-preload');
+					}, 100);
+				});
+			})(jQuery);
+		</script>
+	</body>
 </html>
