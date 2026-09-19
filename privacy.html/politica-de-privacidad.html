@@ -13,64 +13,92 @@
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 		<style>
-			/* Anulación de estilos de la plantilla para visibilidad inmediata */
-			#wrapper {
-				display: flex !important;
-				flex-direction: column !important;
-				align-items: center !important;
-				justify-content: flex-start !important;
-				min-height: 100vh !important;
-				padding: 2rem 1rem !important;
-				z-index: 2 !important;
-				position: relative !important;
-			}
-
-			#main {
-				display: block !important;
-				width: 100% !important;
-				max-width: 800px !important;
-				margin: 0 auto !important;
-			}
-
-			/* Barra superior con selector de idioma */
+			/* Estilos base para el encabezado */
 			.header-nav {
 				width: 100%;
 				max-width: 800px;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				margin-bottom: 2rem;
+				margin: 0 auto 2rem auto;
+				text-align: center;
+				position: relative;
 			}
 
 			.studio-logo-btn {
-				text-align: left;
+				display: block;
+				text-align: center;
+				margin-bottom: 15px;
 			}
 
 			.studio-logo-btn a {
 				text-decoration: none !important;
 				border-bottom: none !important;
-				font-size: 2rem;
+				font-size: 1.8rem;
 				font-weight: 700;
 				letter-spacing: 2px;
+				display: inline-block;
 			}
 
-			/* Selector de Idioma (ES / EN) */
+			.lang-switch {
+				display: block;
+				text-align: center;
+			}
+
 			.lang-switch button {
-				background: transparent;
-				border: 1px solid #a3a8b5;
-				color: #fff;
-				padding: 5px 12px;
-				cursor: pointer;
-				border-radius: 4px;
-				transition: 0.3s;
+				background: transparent !important;
+				border: 1px solid #a3a8b5 !important;
+				color: #fff !important;
+				padding: 5px 16px !important;
+				cursor: pointer !important;
+				border-radius: 4px !important;
+				transition: 0.3s !important;
+				font-weight: bold !important;
+				display: inline-block !important;
+				margin: 0 4px !important;
 			}
 
 			.lang-switch button:hover {
-				border-color: #D12E2E;
-				color: #D12E2E;
-				box-shadow: 0 0 8px rgba(209, 46, 46, 0.4);
+				border-color: #D12E2E !important;
+				color: #D12E2E !important;
+				box-shadow: 0 0 8px rgba(209, 46, 46, 0.4) !important;
 			}
 
+			/* REGLA ÚNICA: TELÉFONO EN VERTICAL (PORTRAIT) */
+			@media screen and (max-width: 736px) and (orientation: portrait) {
+				.header-nav {
+					display: flex !important;
+					flex-direction: column !important;
+					align-items: center !important;
+					justify-content: center !important;
+					width: 100% !important;
+					margin-bottom: 1.5rem !important;
+				}
+
+				.studio-logo-btn {
+					width: 100% !important;
+					text-align: center !important;
+					margin: 0 0 12px 0 !important;
+					position: static !important;
+					float: none !important;
+				}
+
+				.studio-logo-btn a {
+					font-size: 1.5rem !important;
+				}
+
+				.lang-switch {
+					width: 100% !important;
+					display: flex !important;
+					justify-content: center !important;
+					gap: 10px !important;
+					position: static !important;
+					float: none !important;
+				}
+
+				.lang-switch button {
+					margin: 0 !important;
+				}
+			}
+
+			/* Estilos personalizados del cuadro de privacidad (se mantienen intactos) */
 			#privacy-card {
 				background: rgba(19, 21, 25, 0.92) !important;
 				border-radius: 8px !important;
@@ -107,7 +135,6 @@
 				font-weight: bold;
 			}
 
-			/* Botón con el color rojo de 'Red' y letra blanca fija */
 			.button.btn-red {
 				background-color: #D12E2E !important;
 				color: #ffffff !important;
@@ -120,17 +147,12 @@
 				border-color: #b02323 !important;
 				color: #ffffff !important;
 			}
-
-			/* Forzar al fondo animado a permanecer de fondo */
-			#bg {
-				z-index: 1 !important;
-			}
 		</style>
 	</head>
 	<body class="is-preload">
 
 		<div id="wrapper">
-			<!-- Encabezado con Logo y Selector de Idioma -->
+			<!-- Encabezado con Logo centrado y Selector de Idioma debajo -->
 			<div class="header-nav">
 				<div class="studio-logo-btn">
 					<a id="home-link-logo" href="../es/index.html">
@@ -138,8 +160,8 @@
 					</a>
 				</div>
 				<div class="lang-switch">
-					<button onclick="switchLanguage('es')">ES</button>
-					<button onclick="switchLanguage('en')">EN</button>
+					<button type="button" onclick="switchLanguage('es')">ES</button>
+					<button type="button" onclick="switchLanguage('en')">EN</button>
 				</div>
 			</div>
 
@@ -165,7 +187,7 @@
 					<p class="lang" 
 					   data-es="RedGrayFox Studio sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. La información recopilada incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y el número de clics. Esta información no está vinculada a ninguna información que sea personalmente identificable." 
 					   data-en="RedGrayFox Studio follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected includes IP addresses, browser type, Internet Service Provider (ISP), date/time stamp, referring/exit pages, and number of clicks. These are not linked to any information that is personally identifiable.">
-					   RedGrayFox Studio sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. La información recopilada incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y el número de clics. Esta información no está vinculada a ninguna información que sea personalmente identificable.
+					   RedGrayFox Studio sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. La información recopilada incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y el número de clics. Esta información no está vinculada a ninguna información que sea personally identificable.
 					</p>
 
 					<h3 class="lang" data-es="3. Cookies y Tecnologías de Rastreo" data-en="3. Cookies and Tracking Technologies">3. Cookies y Tecnologías de Rastreo</h3>
@@ -251,13 +273,11 @@
 		<script src="../assets/js/browser.min.js"></script>
 		<script src="../assets/js/breakpoints.min.js"></script>
 		<script src="../assets/js/util.js"></script>
-		
-		<!-- Lógica de traducción e inicialización -->
+
 		<script>
 			function switchLanguage(lang) {
 				document.documentElement.lang = lang;
 
-				// Actualizar todos los elementos traducibles
 				document.querySelectorAll('.lang').forEach(el => {
 					const text = el.getAttribute(`data-${lang}`);
 					if (text) {
@@ -269,7 +289,6 @@
 					}
 				});
 
-				// Actualizar enlaces de regreso al inicio según el idioma
 				const homePath = (lang === 'es') ? '../es/index.html' : '../index.html';
 				const logoLink = document.getElementById('home-link-logo');
 				const btnLink = document.getElementById('home-link-btn');
@@ -278,13 +297,11 @@
 				if (btnLink) btnLink.href = homePath;
 			}
 
-			// Detección automática al cargar la página (por parámetro URL ?lang=es/en o por referrer)
 			document.addEventListener("DOMContentLoaded", function() {
 				const urlParams = new URLSearchParams(window.location.search);
 				let langParam = urlParams.get('lang');
 
 				if (!langParam) {
-					// Si viene desde la carpeta /es/, establecer español
 					if (document.referrer.includes('/es/')) {
 						langParam = 'es';
 					} else {
