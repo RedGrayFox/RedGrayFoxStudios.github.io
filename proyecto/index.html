@@ -13,7 +13,6 @@
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 		<style>
-			/* Anulación de estilos de la plantilla para visibilidad inmediata */
 			#wrapper {
 				display: flex !important;
 				flex-direction: column !important;
@@ -32,23 +31,24 @@
 				margin: 0 auto !important;
 			}
 
-			/* Barra superior centrada y forzada en columna */
+			/* Contenedor del encabezado totalmente aislado */
 			.header-nav {
 				width: 100% !important;
 				max-width: 800px !important;
-				display: flex !important;
-				flex-direction: column !important;
-				align-items: center !important;
-				justify-content: center !important;
-				margin-bottom: 2rem !important;
+				margin: 0 auto 2rem auto !important;
 				text-align: center !important;
+				display: block !important;
 				position: relative !important;
+				clear: both !important;
 			}
 
 			.studio-logo-btn {
+				display: block !important;
 				text-align: center !important;
-				margin-bottom: 12px !important;
+				margin: 0 0 15px 0 !important;
 				width: 100% !important;
+				position: relative !important;
+				float: none !important;
 			}
 
 			.studio-logo-btn a {
@@ -58,30 +58,32 @@
 				font-weight: 700 !important;
 				letter-spacing: 2px !important;
 				display: inline-block !important;
+				white-space: nowrap !important;
 			}
 
-			/* Selector de Idioma (ES / EN) alineado horizontalmente abajo */
+			/* Botones centrados justo abajo */
 			.lang-switch {
-				display: flex !important;
-				flex-direction: row !important;
-				gap: 12px !important;
-				justify-content: center !important;
-				align-items: center !important;
+				display: block !important;
+				text-align: center !important;
 				width: 100% !important;
+				margin: 0 auto !important;
+				position: relative !important;
+				clear: both !important;
+				float: none !important;
 			}
 
 			.lang-switch button {
 				background: transparent !important;
 				border: 1px solid #a3a8b5 !important;
 				color: #fff !important;
-				padding: 6px 16px !important;
+				padding: 5px 16px !important;
 				cursor: pointer !important;
 				border-radius: 4px !important;
 				transition: 0.3s !important;
 				font-weight: bold !important;
 				display: inline-block !important;
-				height: auto !important;
-				line-height: normal !important;
+				margin: 0 4px !important;
+				vertical-align: middle !important;
 			}
 
 			.lang-switch button:hover {
@@ -126,7 +128,6 @@
 				font-weight: bold;
 			}
 
-			/* Botón con el color rojo de 'Red' y letra blanca fija */
 			.button.btn-red {
 				background-color: #D12E2E !important;
 				color: #ffffff !important;
@@ -140,7 +141,6 @@
 				color: #ffffff !important;
 			}
 
-			/* Forzar al fondo animado a permanecer de fondo */
 			#bg {
 				z-index: 1 !important;
 			}
@@ -157,8 +157,8 @@
 					</a>
 				</div>
 				<div class="lang-switch">
-					<button onclick="switchLanguage('es')">ES</button>
-					<button onclick="switchLanguage('en')">EN</button>
+					<button type="button" onclick="switchLanguage('es')">ES</button>
+					<button type="button" onclick="switchLanguage('en')">EN</button>
 				</div>
 			</div>
 
@@ -270,13 +270,11 @@
 		<script src="../assets/js/browser.min.js"></script>
 		<script src="../assets/js/breakpoints.min.js"></script>
 		<script src="../assets/js/util.js"></script>
-		
-		<!-- Lógica de traducción e inicialización -->
+
 		<script>
 			function switchLanguage(lang) {
 				document.documentElement.lang = lang;
 
-				// Actualizar todos los elementos traducibles
 				document.querySelectorAll('.lang').forEach(el => {
 					const text = el.getAttribute(`data-${lang}`);
 					if (text) {
@@ -288,7 +286,6 @@
 					}
 				});
 
-				// Actualizar enlaces de regreso al inicio según el idioma
 				const homePath = (lang === 'es') ? '../es/index.html' : '../index.html';
 				const logoLink = document.getElementById('home-link-logo');
 				const btnLink = document.getElementById('home-link-btn');
@@ -297,13 +294,11 @@
 				if (btnLink) btnLink.href = homePath;
 			}
 
-			// Detección automática al cargar la página (por parámetro URL ?lang=es/en o por referrer)
 			document.addEventListener("DOMContentLoaded", function() {
 				const urlParams = new URLSearchParams(window.location.search);
 				let langParam = urlParams.get('lang');
 
 				if (!langParam) {
-					// Si viene desde la carpeta /es/, establecer español
 					if (document.referrer.includes('/es/')) {
 						langParam = 'es';
 					} else {
