@@ -32,53 +32,62 @@
 				margin: 0 auto !important;
 			}
 
-			/* Barra superior centrada: Título arriba y botones abajo */
+			/* Barra superior centrada y forzada en columna */
 			.header-nav {
-				width: 100%;
-				max-width: 800px;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				margin-bottom: 2rem;
-				text-align: center;
+				width: 100% !important;
+				max-width: 800px !important;
+				display: flex !important;
+				flex-direction: column !important;
+				align-items: center !important;
+				justify-content: center !important;
+				margin-bottom: 2rem !important;
+				text-align: center !important;
+				position: relative !important;
 			}
 
 			.studio-logo-btn {
-				text-align: center;
-				margin-bottom: 12px;
+				text-align: center !important;
+				margin-bottom: 12px !important;
+				width: 100% !important;
 			}
 
 			.studio-logo-btn a {
 				text-decoration: none !important;
 				border-bottom: none !important;
-				font-size: 2.2rem;
-				font-weight: 700;
-				letter-spacing: 2px;
+				font-size: 1.8rem !important;
+				font-weight: 700 !important;
+				letter-spacing: 2px !important;
+				display: inline-block !important;
 			}
 
-			/* Selector de Idioma (ES / EN) centrado abajo */
+			/* Selector de Idioma (ES / EN) alineado horizontalmente abajo */
 			.lang-switch {
-				display: flex;
-				gap: 10px;
-				justify-content: center;
+				display: flex !important;
+				flex-direction: row !important;
+				gap: 12px !important;
+				justify-content: center !important;
+				align-items: center !important;
+				width: 100% !important;
 			}
 
 			.lang-switch button {
-				background: transparent;
-				border: 1px solid #a3a8b5;
-				color: #fff;
-				padding: 6px 16px;
-				cursor: pointer;
-				border-radius: 4px;
-				transition: 0.3s;
-				font-weight: bold;
+				background: transparent !important;
+				border: 1px solid #a3a8b5 !important;
+				color: #fff !important;
+				padding: 6px 16px !important;
+				cursor: pointer !important;
+				border-radius: 4px !important;
+				transition: 0.3s !important;
+				font-weight: bold !important;
+				display: inline-block !important;
+				height: auto !important;
+				line-height: normal !important;
 			}
 
 			.lang-switch button:hover {
-				border-color: #D12E2E;
-				color: #D12E2E;
-				box-shadow: 0 0 8px rgba(209, 46, 46, 0.4);
+				border-color: #D12E2E !important;
+				color: #D12E2E !important;
+				box-shadow: 0 0 8px rgba(209, 46, 46, 0.4) !important;
 			}
 
 			#privacy-card {
