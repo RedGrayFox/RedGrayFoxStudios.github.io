@@ -13,63 +13,33 @@
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 		<style>
-			#wrapper {
-				display: flex !important;
-				flex-direction: column !important;
-				align-items: center !important;
-				justify-content: flex-start !important;
-				min-height: 100vh !important;
-				padding: 2rem 1rem !important;
-				z-index: 2 !important;
-				position: relative !important;
-			}
-
-			#main {
-				display: block !important;
-				width: 100% !important;
-				max-width: 800px !important;
-				margin: 0 auto !important;
-			}
-
-			/* Contenedor del encabezado totalmente aislado */
+			/* Estilos base para el encabezado */
 			.header-nav {
-				width: 100% !important;
-				max-width: 800px !important;
-				margin: 0 auto 2rem auto !important;
-				text-align: center !important;
-				display: block !important;
-				position: relative !important;
-				clear: both !important;
+				width: 100%;
+				max-width: 800px;
+				margin: 0 auto 2rem auto;
+				text-align: center;
+				position: relative;
 			}
 
 			.studio-logo-btn {
-				display: block !important;
-				text-align: center !important;
-				margin: 0 0 15px 0 !important;
-				width: 100% !important;
-				position: relative !important;
-				float: none !important;
+				display: block;
+				text-align: center;
+				margin-bottom: 15px;
 			}
 
 			.studio-logo-btn a {
 				text-decoration: none !important;
 				border-bottom: none !important;
-				font-size: 1.8rem !important;
-				font-weight: 700 !important;
-				letter-spacing: 2px !important;
-				display: inline-block !important;
-				white-space: nowrap !important;
+				font-size: 1.8rem;
+				font-weight: 700;
+				letter-spacing: 2px;
+				display: inline-block;
 			}
 
-			/* Botones centrados justo abajo */
 			.lang-switch {
-				display: block !important;
-				text-align: center !important;
-				width: 100% !important;
-				margin: 0 auto !important;
-				position: relative !important;
-				clear: both !important;
-				float: none !important;
+				display: block;
+				text-align: center;
 			}
 
 			.lang-switch button {
@@ -83,7 +53,6 @@
 				font-weight: bold !important;
 				display: inline-block !important;
 				margin: 0 4px !important;
-				vertical-align: middle !important;
 			}
 
 			.lang-switch button:hover {
@@ -92,6 +61,44 @@
 				box-shadow: 0 0 8px rgba(209, 46, 46, 0.4) !important;
 			}
 
+			/* REGLA ÚNICA: TELÉFONO EN VERTICAL (PORTRAIT) */
+			@media screen and (max-width: 736px) and (orientation: portrait) {
+				.header-nav {
+					display: flex !important;
+					flex-direction: column !important;
+					align-items: center !important;
+					justify-content: center !important;
+					width: 100% !important;
+					margin-bottom: 1.5rem !important;
+				}
+
+				.studio-logo-btn {
+					width: 100% !important;
+					text-align: center !important;
+					margin: 0 0 12px 0 !important;
+					position: static !important;
+					float: none !important;
+				}
+
+				.studio-logo-btn a {
+					font-size: 1.5rem !important;
+				}
+
+				.lang-switch {
+					width: 100% !important;
+					display: flex !important;
+					justify-content: center !important;
+					gap: 10px !important;
+					position: static !important;
+					float: none !important;
+				}
+
+				.lang-switch button {
+					margin: 0 !important;
+				}
+			}
+
+			/* Estilos personalizados del cuadro de privacidad (se mantienen intactos) */
 			#privacy-card {
 				background: rgba(19, 21, 25, 0.92) !important;
 				border-radius: 8px !important;
@@ -140,10 +147,6 @@
 				border-color: #b02323 !important;
 				color: #ffffff !important;
 			}
-
-			#bg {
-				z-index: 1 !important;
-			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -184,7 +187,7 @@
 					<p class="lang" 
 					   data-es="RedGrayFox Studio sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. La información recopilada incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y el número de clics. Esta información no está vinculada a ninguna información que sea personalmente identificable." 
 					   data-en="RedGrayFox Studio follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected includes IP addresses, browser type, Internet Service Provider (ISP), date/time stamp, referring/exit pages, and number of clicks. These are not linked to any information that is personally identifiable.">
-					   RedGrayFox Studio sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. La información recopilada incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y el número de clics. Esta información no está vinculada a ninguna información que sea personalmente identificable.
+					   RedGrayFox Studio sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. La información recopilada incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y el número de clics. Esta información no está vinculada a ninguna información que sea personally identificable.
 					</p>
 
 					<h3 class="lang" data-es="3. Cookies y Tecnologías de Rastreo" data-en="3. Cookies and Tracking Technologies">3. Cookies y Tecnologías de Rastreo</h3>
