@@ -77,3 +77,411 @@
 
         .lang-switch button:hover {
             border-color: var(--red-fox);
+            color: var(--red-fox);
+            box-shadow: 0 0 8px var(--red-glow);
+        }
+
+        /* Contenedor Flexbox de 2 Columnas */
+        .main-container {
+            display: flex;
+            height: calc(100vh - 70px);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* COLUMNA IZQUIERDA: Avances del Proyecto */
+        .left-col {
+            flex: 1;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 8px 0 0 8px;
+            padding: 25px;
+            overflow-y: auto;
+            backdrop-filter: blur(0px);
+            margin-right: 15px;
+            border-right: 2px solid var(--red-fox);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        /* COLUMNA DERECHA: Comentarios de Disqus */
+        .right-col {
+            flex: 1;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 0 8px 8px 0;
+            padding: 25px;
+            overflow-y: auto;
+            backdrop-filter: blur(0px);
+            margin-left: 15px;
+            box-shadow: 5px 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Publicaciones en la columna izquierda */
+        .entry {
+            background: rgba(20, 26, 40, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 18px;
+            margin-bottom: 25px;
+        }
+
+        .entry-date {
+            color: var(--red-fox);
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .entry-title {
+            margin: 8px 0 12px 0;
+            color: #fff;
+        }
+
+        .entry img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid var(--panel-border);
+            margin-top: 10px;
+        }
+
+        .entry audio {
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.3);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--red-fox);
+            border-radius: 4px;
+        }
+
+          /* Aviso de girar pantalla */
+  .rotate-notice {
+    display: none !important; /* Lo oculta en PC */
+    text-align: center !important;
+    width: 100% !important;
+    margin: 10px auto !important;
+    font-size: 0.8rem;
+    color: #a3a8b5;
+  }
+
+  /* Solo se muestra centrado en móviles verticales */
+  @media (max-width: 768px) and (orientation: portrait) {
+    .rotate-notice {
+      display: block !important;
+    }
+  }
+    
+
+            /* Corrección para pantalla vertical en móviles */
+        @media screen and (orientation: portrait) and (max-width: 768px) {
+            html {
+                height: auto !important;
+                overflow-x: hidden !important;
+                overflow-y: auto !important;
+            }
+
+            body {
+                height: auto !important;
+                min-height: 100% !important;
+                overflow-x: hidden !important;
+                overflow-y: auto !important;
+                background-image: none !important;
+            }
+
+            /* Capa de fondo estática que no rompe el scroll ni el refresh */
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: -1;
+                background-color: var(--bg-dark);
+                background-image:
+                    radial-gradient(circle at 50% 50%, rgba(255, 42, 75, 0.15) 0%, transparent 60%),
+                    url('../images/dbgp1.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            .main-container {
+                display: block !important;
+                height: auto !important;
+                padding: 10px !important;
+                overflow: visible !important;
+            }
+
+            .left-col,
+            .right-col {
+                width: 100% !important;
+                height: auto !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                margin-bottom: 20px !important;
+                border-radius: 8px !important;
+                box-sizing: border-box !important;
+                overflow: visible !important;
+            }
+        }
+
+
+            /* --- BOTÓN UNIVERSAL DE APOYO Y REDES --- */
+        .universal-like-container {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+/* Botón principal */
+        .universal-like-btn {
+            background-color: #252830;
+            color: #ffffff;
+            padding: 12px 20px;
+            font-size: 0.95em;
+            font-weight: bold;
+            border: 1px solid var(--panel-border, #3b3f4d);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            width: 100%;
+        }
+.universal-like-btn:hover {
+    background-color: #323642;
+    border-color: #52586b;
+}
+/* Menú desplegable oculto */
+        .like-dropdown-content {
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1e2026;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--panel-border, #3b3f4d);
+            border-radius: 6px;
+            z-index: 1000;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+/* Enlaces dentro del desplegable */
+        .like-dropdown-content a {
+            color: #e1e1e1;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-size: 0.9em;
+            border-bottom: 1px solid #2a2d37;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+.like-dropdown-content a:last-child {
+    border-bottom: none;
+}
+.like-dropdown-content a:hover {
+    background-color: #2b2e38;
+    color: #ffffff;
+}
+/* Mostrar menú con JavaScript */
+        .show-dropdown {
+            display: block;
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <h1><a href="../index.html"><span>RED</span><span style="color: #828299;">GrayFox</span>STUDIO</a></h1>
+        </div>
+        <div class="lang-switch">
+            <button onclick="switchLanguage('es')">ES</button>
+            <button onclick="switchLanguage('en')">EN</button>
+        </div>
+    </header>
+
+    <p class="rotate-notice lang" data-es="Gira el dispositivo para una mejor experiencia" data-en="Rotate device for a better experience">Gira el dispositivo para una mejor experiencia</p>
+
+    <div class="main-container">
+    
+        <!-- COLUMNA IZQUIERDA (DESARROLLO) -->
+        <section class="left-col">
+            <h2 class="lang" data-es="DESARROLLO" data-en="DEVELOPMENT">DESARROLLO</h2>
+            <hr style="border: 0.5px solid var(--panel-border); margin-bottom: 20px;">
+
+<video id="studio-intro" playsinline width="100%" style="cursor: pointer; border-radius: 4px; border: 1px solid var(--panel-border); margin-bottom: 20px;">
+  <source src="../devlog-media/RedGrayFoxStudio.mp4" type="video/mp4">
+  Tu navegador no soporta el reproductor de video.
+</video>
+
+<script>
+  document.addEventListener('click', function enableAudio() {
+    const video = document.getElementById('studio-intro');
+    if (video) {
+      video.muted = false;
+    }
+    document.removeEventListener('click', enableAudio);
+  }, { once: true });
+</script>
+            
+  
+           <div id="devlog-container">
+    <article class="entry">
+        <span class="entry-date lang" data-es="Actualizaciones" data-en="Updates">Actualizaciones</span>
+        <h3 class="entry-title lang" data-es="Lógica y Actualización de Sprites" data-en="Sprites & Logic Update">Lógica y Actualización de Sprites</h3>
+        <p class="lang" data-es="Personajes, movimientos, escenarios, etc." data-en="Characters, movements, scene layout, etc.">Personajes, movimientos, escenarios, etc.</p>
+    </article>
+</div>
+        </section>
+
+        <!-- COLUMNA DERECHA (DISQUS) -->
+        <section class="right-col">
+            <h2 class="lang" data-es="COMUNIDAD Y OPINIONES" data-en="COMMUNITY & FEEDBACK">COMMUNITY & FEEDBACK</h2>
+            <hr style="border: 0.5px solid var(--panel-border); margin-bottom: 20px;">
+
+
+            <!-- BOTÓN UNIVERSAL DE APOYO / PLATAFORMAS -->
+<div class="universal-like-container">
+    <button type="button" class="universal-like-btn lang" data-es="❤️ Apoyo Por Plataforma" data-en="❤️ Support By Platform" onclick="toggleLikeMenu()">
+    ❤️ Apoyo Por Plataforma
+</button>
+
+
+    <div id="likeDropdownMenu" class="like-dropdown-content">
+        <a href="https://www.tiktok.com/@redgrayfox_studio" target="_blank" rel="noopener">🎵 TikTok</a>
+        <a href="https://www.facebook.com/profile.php?id=61578874520344" target="_blank" rel="noopener">👍 Facebook</a>
+        <a href="https://www.instagram.com/redgrayfox_studio" target="_blank" rel="noopener">📸 Instagram</a>
+        <a href="https://www.youtube.com/@RedGrayFox" target="_blank" rel="noopener">▶️ YouTube</a>
+        <a href="https://www.x.com/RedGrayFox" target="_blank" rel="noopener">✖️ X (Twitter)</a>
+        <a href="https://discord.gg/xxYbZUvq5" target="_blank" rel="noopener">💬 Discord</a>
+    </div>
+</div>
+
+
+            <div id="disqus_thread"></div>
+
+        </section>
+
+    </div>
+
+    <!-- CAMBIO DE IDIOMA -->
+    <script>
+  function switchLanguage(lang) {
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('.lang').forEach(el => {
+      el.innerText = el.getAttribute(`data-${lang}`);
+    });
+
+    if (typeof renderDevlog === 'function') {
+      renderDevlog();
+    }
+  }
+</script>
+
+    <!-- INTEGRACIÓN DISQUS -->
+    <script>
+        var disqus_config = function () {
+            this.page.url = window.location.href;
+            this.page.identifier = 'redgrayfox-game-devlog';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://tu-shortname-aqui.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+<script>
+    var disqus_config = function () {
+    this.page.url = window.location.href;
+    this.page.identifier = 'devlog-main';
+};
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://redgrayfoxstudio.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+<script>
+    let devlogData = [];
+  function renderDevlog() {
+      const container = document.getElementById('devlog-container');
+      if (!container || !devlogData.length) return;
+    // Lee el idioma actual de la página (<html lang="es"> o "en")
+      const currentLang = document.documentElement.lang || 'es';
+    container.innerHTML = devlogData.map(post => {
+        // Obtiene el contenido en el idioma activo (o 'es' por defecto)
+        const content = post[currentLang] || post['es'] || {};
+      return `
+      <article class="entry" style="margin-bottom: 20px;">
+      ${post.imagen ? `<img src="../${post.imagen}" alt="Devlog Image" style="display: block; width: 100%; max-width: 500px; height: auto; margin-bottom: 10px;">` : ''}
+      <span class="entry-date">${post.fecha}</span>
+      <h3 class="entry-title">${content.titulo || ''}</h3>
+      <p>${content.resumen || ''}</p>
+      </article>
+      `;
+    }).join('');
+  }
+  // Carga el JSON fresco evitando la memoria caché
+    fetch('../devlog.json?v=' + new Date().getTime())
+        .then(response => response.json())
+        .then(data => {
+            devlogData = data;
+            renderDevlog();
+        })
+        .catch(err => console.error('Error cargando devlog:', err));
+</script>
+
+<script>  const studioVideo = document.getElementById('studio-intro');
+  studioVideo.addEventListener('click', () => {
+    if (studioVideo.paused) {
+      studioVideo.muted = false; // Activa el audio
+      studioVideo.play();        // Inicia el video
+    } else {
+      studioVideo.pause();       // Lo pausa si le vuelven a dar clic
+    }
+  });
+</script>
+
+
+<script>
+function toggleLikeMenu() {
+    document.getElementById("likeDropdownMenu").classList.toggle("show-dropdown");
+}
+
+/* Cierra el menú desplegable si el usuario hace clic en cualquier otro lado */
+window.onclick = function(event) {
+    if (!event.target.matches('.universal-like-btn')) {
+        var dropdowns = document.getElementsByClassName("like-dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show-dropdown')) {
+                openDropdown.classList.remove('show-dropdown');
+            }
+        }
+    }
+}
+</script>
+    
+</body>
+</html>
