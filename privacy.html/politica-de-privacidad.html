@@ -4,9 +4,9 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="es">
 	<head>
-		<title>Política de Privacidad - RedGrayFox Studio</title>
+		<title class="lang" data-es="Política de Privacidad - RedGrayFox Studio" data-en="Privacy Policy - RedGrayFox Studio">Política de Privacidad - RedGrayFox Studio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="icon" type="image/png" href="../images/favicon.png" />
@@ -32,17 +32,43 @@
 				margin: 0 auto !important;
 			}
 
-			.studio-logo-btn {
-				text-align: center;
+			/* Barra superior con selector de idioma */
+			.header-nav {
+				width: 100%;
+				max-width: 800px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
 				margin-bottom: 2rem;
+			}
+
+			.studio-logo-btn {
+				text-align: left;
 			}
 
 			.studio-logo-btn a {
 				text-decoration: none !important;
 				border-bottom: none !important;
-				font-size: 2.2rem;
+				font-size: 2rem;
 				font-weight: 700;
 				letter-spacing: 2px;
+			}
+
+			/* Selector de Idioma (ES / EN) */
+			.lang-switch button {
+				background: transparent;
+				border: 1px solid #a3a8b5;
+				color: #fff;
+				padding: 5px 12px;
+				cursor: pointer;
+				border-radius: 4px;
+				transition: 0.3s;
+			}
+
+			.lang-switch button:hover {
+				border-color: #D12E2E;
+				color: #D12E2E;
+				box-shadow: 0 0 8px rgba(209, 46, 46, 0.4);
 			}
 
 			#privacy-card {
@@ -104,59 +130,114 @@
 	<body class="is-preload">
 
 		<div id="wrapper">
-			<!-- Logo / Título del Estudio al centro (Botón de retorno al inicio) -->
-			<div class="studio-logo-btn">
-				<a href="../es/index.html">
-					<span style="color: #D12E2E;">Red</span><span style="color: #777777;">GrayFox</span><span style="color: #ffffff;">Studio</span>
-				</a>
+			<!-- Encabezado con Logo y Selector de Idioma -->
+			<div class="header-nav">
+				<div class="studio-logo-btn">
+					<a id="home-link-logo" href="../es/index.html">
+						<span style="color: #D12E2E;">Red</span><span style="color: #777777;">GrayFox</span><span style="color: #ffffff;">Studio</span>
+					</a>
+				</div>
+				<div class="lang-switch">
+					<button onclick="switchLanguage('es')">ES</button>
+					<button onclick="switchLanguage('en')">EN</button>
+				</div>
 			</div>
 
 			<!-- Cuadro principal con el texto de la Política de Privacidad -->
 			<div id="main">
 				<div id="privacy-card" class="privacy-content">
-					<h2>Política de Privacidad</h2>
+					<h2 class="lang" data-es="Política de Privacidad" data-en="Privacy Policy">Política de Privacidad</h2>
 
-					<p>En <strong>RedGrayFox Studio</strong>, accesible desde nuestro sitio web, una de nuestras principales prioridades es la privacidad de nuestros visitantes. Este documento contiene los tipos de información que recopilamos y registramos, así como el uso que hacemos de ella.</p>
+					<p class="lang" 
+					   data-es="En RedGrayFox Studio, accesible desde nuestro sitio web, una de nuestras principales prioridades es la privacidad de nuestros visitantes. Este documento contiene los tipos de información que recopilamos y registramos, así como el uso que hacemos de ella." 
+					   data-en="At RedGrayFox Studio, accessible from our website, one of our main priorities is the privacy of our visitors. This document contains types of information that is collected and recorded by us and how we use it.">
+					   En <strong>RedGrayFox Studio</strong>, accesible desde nuestro sitio web, una de nuestras principales prioridades es la privacidad de nuestros visitantes. Este documento contiene los tipos de información que recopilamos y registramos, así como el uso que hacemos de ella.
+					</p>
 
-					<h3>1. Información que recopilamos</h3>
-					<p>Si te pones en contacto directamente con nosotros (por ejemplo, a través de nuestro correo electrónico de soporte), es posible que recibamos información adicional sobre ti, como tu nombre, dirección de correo electrónico, el contenido del mensaje y/o archivos adjuntos que nos envíes.</p>
+					<h3 class="lang" data-es="1. Información que recopilamos" data-en="1. Information We Collect">1. Información que recopilamos</h3>
+					<p class="lang" 
+					   data-es="Si te pones en contacto directamente con nosotros (por ejemplo, a través de nuestro correo electrónico de soporte), es posible que recibamos información adicional sobre ti, como tu nombre, dirección de correo electrónico, el contenido del mensaje y/o archivos adjuntos que nos envíes." 
+					   data-en="If you contact us directly (for example, through our support email), we may receive additional information about you such as your name, email address, the contents of the message and/or attachments you may send us.">
+					   Si te pones en contacto directamente con nosotros (por ejemplo, a través de nuestro correo electrónico de soporte), es posible que recibamos información adicional sobre ti, como tu nombre, dirección de correo electrónico, el contenido del mensaje y/o archivos adjuntos que nos envíes.
+					</p>
 
-					<h3>2. Archivos de registro (Log Files)</h3>
-					<p>RedGrayFox Studio sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. La información recopilada incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y el número de clics. Esta información no está vinculada a ninguna información que sea personalmente identificable.</p>
+					<h3 class="lang" data-es="2. Archivos de registro (Log Files)" data-en="2. Log Files">2. Archivos de registro (Log Files)</h3>
+					<p class="lang" 
+					   data-es="RedGrayFox Studio sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. La información recopilada incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y el número de clics. Esta información no está vinculada a ninguna información que sea personalmente identificable." 
+					   data-en="RedGrayFox Studio follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected includes IP addresses, browser type, Internet Service Provider (ISP), date/time stamp, referring/exit pages, and number of clicks. These are not linked to any information that is personally identifiable.">
+					   RedGrayFox Studio sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. La información recopilada incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y el número de clics. Esta información no está vinculada a ninguna información que sea personalmente identificable.
+					</p>
 
-					<h3>3. Cookies y Tecnologías de Rastreo</h3>
-					<p>Al igual que la mayoría de los sitios web, RedGrayFox Studio utiliza 'cookies'. Estas cookies se utilizan para almacenar información, incluidas las preferencias de los visitantes y las páginas del sitio web a las que el usuario accedió. La información se utiliza para optimizar la experiencia de los usuarios al personalizar el contenido de nuestra página web.</p>
+					<h3 class="lang" data-es="3. Cookies y Tecnologías de Rastreo" data-en="3. Cookies and Tracking Technologies">3. Cookies y Tecnologías de Rastreo</h3>
+					<p class="lang" 
+					   data-es="Al igual que la mayoría de los sitios web, RedGrayFox Studio utiliza 'cookies'. Estas cookies se utilizan para almacenar información, incluidas las preferencias de los visitantes y las páginas del sitio web a las que el usuario accedió. La información se utiliza para optimizar la experiencia de los usuarios al personalizar el contenido de nuestra página web." 
+					   data-en="Like any other website, RedGrayFox Studio uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content.">
+					   Al igual que la mayoría de los sitios web, RedGrayFox Studio utiliza 'cookies'. Estas cookies se utilizan para almacenar información, incluidas las preferencias de los visitantes y las páginas del sitio web a las que el usuario accedió. La información se utiliza para optimizar la experiencia de los usuarios al personalizar el contenido de nuestra página web.
+					</p>
 
-					<h3>4. Cookie de Google DoubleClick (DART)</h3>
-					<p>Google es uno de los proveedores externos en nuestro sitio. También utiliza cookies, conocidas como cookies de DART, para mostrar anuncios a los visitantes de nuestro sitio en función de su visita a este y a otros sitios en Internet.</p>
+					<h3 class="lang" data-es="4. Cookie de Google DoubleClick (DART)" data-en="4. Google DoubleClick DART Cookie">4. Cookie de Google DoubleClick (DART)</h3>
+					<p class="lang" 
+					   data-es="Google es uno de los proveedores externos en nuestro sitio. También utiliza cookies, conocidas como cookies de DART, para mostrar anuncios a los visitantes de nuestro sitio en función de su visita a este y a otros sitios en Internet." 
+					   data-en="Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to other sites on the internet.">
+					   Google es uno de los proveedores externos en nuestro sitio. También utiliza cookies, conocidas como cookies de DART, para mostrar anuncios a los visitantes de nuestro sitio en función de su visita a este y a otros sitios en Internet.
+					</p>
 					<ul>
-						<li>Los proveedores de terceros, incluido Google, utilizan cookies para mostrar anuncios basados en las visitas anteriores del usuario a este sitio web o a otros sitios web.</li>
-						<li>El uso de cookies de publicidad permite a Google y a sus socios mostrar anuncios basados en las visitas realizadas por los usuarios a sus sitios o a otros sitios de Internet.</li>
-						<li>Los usuarios pueden inhabilitar la publicidad personalizada dirigiéndose a la <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Configuración de anuncios de Google</a>.</li>
-						<li>Alternativamente, puedes inhabilitar el uso de cookies de terceros para la publicidad personalizada visitando <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.</li>
+						<li class="lang" 
+						    data-es="Los proveedores de terceros, incluido Google, utilizan cookies para mostrar anuncios basados en las visitas anteriores del usuario a este sitio web o a otros sitios web." 
+						    data-en="Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to your website or other websites.">
+						    Los proveedores de terceros, incluido Google, utilizan cookies para mostrar anuncios basados en las visitas anteriores del usuario a este sitio web o a otros sitios web.
+						</li>
+						<li class="lang" 
+						    data-es="El uso de cookies de publicidad permite a Google y a sus socios mostrar anuncios basados en las visitas realizadas por los usuarios a sus sitios o a otros sitios de Internet." 
+						    data-en="Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.">
+						    El uso de cookies de publicidad permite a Google y a sus socios mostrar anuncios basados en las visitas realizadas por los usuarios a sus sitios o a otros sitios de Internet.
+						</li>
+						<li>
+							<span class="lang" data-es="Los usuarios pueden inhabilitar la publicidad personalizada dirigiéndose a la " data-en="Users may opt out of personalized advertising by visiting ">Los usuarios pueden inhabilitar la publicidad personalizada dirigiéndose a la </span>
+							<a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" class="lang" data-es="Configuración de anuncios de Google" data-en="Google Ads Settings">Configuración de anuncios de Google</a>.
+						</li>
+						<li>
+							<span class="lang" data-es="Alternativamente, puedes inhabilitar el uso de cookies de terceros para la publicidad personalizada visitando " data-en="Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting ">Alternativamente, puedes inhabilitar el uso de cookies de terceros para la publicidad personalizada visitando </span>
+							<a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.
+						</li>
 					</ul>
 
-					<h3>5. Políticas de Privacidad de Terceros</h3>
-					<p>La Política de Privacidad de RedGrayFox Studio no se aplica a otros anunciantes o sitios web. Te aconsejamos consultar las respectivas Políticas de Privacidad de estos servidores de anuncios de terceros para obtener información más detallada sobre sus prácticas e instrucciones de exclusión.</p>
+					<h3 class="lang" data-es="5. Políticas de Privacidad de Terceros" data-en="5. Third Party Privacy Policies">5. Políticas de Privacidad de Terceros</h3>
+					<p class="lang" 
+					   data-es="La Política de Privacidad de RedGrayFox Studio no se aplica a otros anunciantes o sitios web. Te aconsejamos consultar las respectivas Políticas de Privacidad de estos servidores de anuncios de terceros para obtener información más detallada sobre sus prácticas e instrucciones de exclusión." 
+					   data-en="RedGrayFox Studio's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.">
+					   La Política de Privacidad de RedGrayFox Studio no se aplica a otros anunciantes o sitios web. Te aconsejamos consultar las respectivas Políticas de Privacidad de estos servidores de anuncios de terceros para obtener información más detallada sobre sus prácticas e instrucciones de exclusión.
+					</p>
 
-					<h3>6. Derechos de Protección de Datos (GDPR / CCPA)</h3>
-					<p>Queremos asegurarnos de que estás plenamente consciente de todos tus derechos de protección de datos. Todo usuario tiene derecho a lo siguiente:</p>
+					<h3 class="lang" data-es="6. Derechos de Protección de Datos (GDPR / CCPA)" data-en="6. Data Protection Rights (GDPR / CCPA)">6. Derechos de Protección de Datos (GDPR / CCPA)</h3>
+					<p class="lang" 
+					   data-es="Queremos asegurarnos de que estás plenamente consciente de todos tus derechos de protección de datos. Todo usuario tiene derecho a lo siguiente:" 
+					   data-en="We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:">
+					   Queremos asegurarnos de que estás plenamente consciente de todos tus derechos de protección de datos. Todo usuario tiene derecho a lo siguiente:
+					</p>
 					<ul>
-						<li><strong>Derecho de acceso:</strong> Tienes derecho a solicitar copias de tus datos personales.</li>
-						<li><strong>Derecho de rectificación:</strong> Tienes derecho a solicitar que corrigiamos cualquier información que creas que es inexacta o incompleta.</li>
-						<li><strong>Derecho de supresión:</strong> Tienes derecho a solicitar que borremos tus datos personales, bajo ciertas condiciones.</li>
+						<li><strong class="lang" data-es="Derecho de acceso:" data-en="The right to access:">Derecho de acceso:</strong> <span class="lang" data-es=" Tienes derecho a solicitar copias de tus datos personales." data-en=" You have the right to request copies of your personal data."> Tienes derecho a solicitar copias de tus datos personales.</span></li>
+						<li><strong class="lang" data-es="Derecho de rectificación:" data-en="The right to rectification:">Derecho de rectificación:</strong> <span class="lang" data-es=" Tienes derecho a solicitar que corrigiamos cualquier información que creas que es inexacta o incompleta." data-en=" You have the right to request that we correct any information you believe is inaccurate or incomplete."> Tienes derecho a solicitar que corrigiamos cualquier información que creas que es inexacta o incompleta.</span></li>
+						<li><strong class="lang" data-es="Derecho de supresión:" data-en="The right to erasure:">Derecho de supresión:</strong> <span class="lang" data-es=" Tienes derecho a solicitar que borremos tus datos personales, bajo ciertas condiciones." data-en=" You have the right to request that we erase your personal data, under certain conditions."> Tienes derecho a solicitar que borremos tus datos personales, bajo ciertas condiciones.</span></li>
 					</ul>
 
-					<h3>7. Información para niños</h3>
-					<p>Protegemos la privacidad de los menores mientras usan Internet. Animamos a los padres y tutores a observar, participar y/o monitorear la actividad en línea de sus hijos. RedGrayFox Studio no recopila a sabiendas ninguna información de identificación personal de niños menores de 13 años.</p>
+					<h3 class="lang" data-es="7. Información para niños" data-en="7. Children's Information">7. Información para niños</h3>
+					<p class="lang" 
+					   data-es="Protegemos la privacidad de los menores mientras usan Internet. Animamos a los padres y tutores a observar, participar y/o monitorear la actividad en línea de sus hijos. RedGrayFox Studio no recopila a sabiendas ninguna información de identificación personal de niños menores de 13 años." 
+					   data-en="Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. RedGrayFox Studio does not knowingly collect any Personal Identifiable Information from children under the age of 13.">
+					   Protegemos la privacidad de los menores mientras usan Internet. Animamos a los padres y tutores a observar, participar y/o monitorear la actividad en línea de sus hijos. RedGrayFox Studio no recopila a sabiendas ninguna información de identificación personal de niños menores de 13 años.
+					</p>
 
-					<h3>8. Contacto</h3>
-					<p>Si tienes preguntas adicionales o requieres más información sobre nuestra Política de Privacidad, no dudes en contactarnos a través de nuestro correo electrónico: <a href="mailto:redgrayfoxstudio@gmail.com">redgrayfoxstudio@gmail.com</a>.</p>
+					<h3 class="lang" data-es="8. Contacto" data-en="8. Contact Us">8. Contacto</h3>
+					<p>
+						<span class="lang" data-es="Si tienes preguntas adicionales o requieres más información sobre nuestra Política de Privacidad, no dudes en contactarnos a través de nuestro correo electrónico: " data-en="If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at: ">Si tienes preguntas adicionales o requieres más información sobre nuestra Política de Privacidad, no dudes en contactarnos a través de nuestro correo electrónico: </span>
+						<a href="mailto:redgrayfoxstudio@gmail.com">redgrayfoxstudio@gmail.com</a>.
+					</p>
 
 					<hr style="border-color: rgba(255, 255, 255, 0.15); margin: 2rem 0;" />
 
 					<div style="text-align: center;">
-						<a href="../es/index.html" class="button btn-red">← Volver al Inicio</a>
+						<a id="home-link-btn" href="../es/index.html" class="button btn-red lang" data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
 					</div>
 				</div>
 			</div>
@@ -165,15 +246,57 @@
 		<!-- Fondo animado del sitio -->
 		<div id="bg"></div>
 
-		<!-- Scripts indispensables para inicializar el fondo -->
+		<!-- Scripts indispensables -->
 		<script src="../assets/js/jquery.min.js"></script>
 		<script src="../assets/js/browser.min.js"></script>
 		<script src="../assets/js/breakpoints.min.js"></script>
 		<script src="../assets/js/util.js"></script>
+		
+		<!-- Lógica de traducción e inicialización -->
 		<script>
+			function switchLanguage(lang) {
+				document.documentElement.lang = lang;
+
+				// Actualizar todos los elementos traducibles
+				document.querySelectorAll('.lang').forEach(el => {
+					const text = el.getAttribute(`data-${lang}`);
+					if (text) {
+						if (el.tagName === 'TITLE') {
+							document.title = text;
+						} else {
+							el.innerHTML = text;
+						}
+					}
+				});
+
+				// Actualizar enlaces de regreso al inicio según el idioma
+				const homePath = (lang === 'es') ? '../es/index.html' : '../index.html';
+				const logoLink = document.getElementById('home-link-logo');
+				const btnLink = document.getElementById('home-link-btn');
+
+				if (logoLink) logoLink.href = homePath;
+				if (btnLink) btnLink.href = homePath;
+			}
+
+			// Detección automática al cargar la página (por parámetro URL ?lang=es/en o por referrer)
+			document.addEventListener("DOMContentLoaded", function() {
+				const urlParams = new URLSearchParams(window.location.search);
+				let langParam = urlParams.get('lang');
+
+				if (!langParam) {
+					// Si viene desde la carpeta /es/, establecer español
+					if (document.referrer.includes('/es/')) {
+						langParam = 'es';
+					} else {
+						langParam = 'en';
+					}
+				}
+
+				switchLanguage(langParam);
+			});
+
 			(function($) {
-				var $window = $(window);
-				$window.on('load', function() {
+				var $window = $(window);$window.on('load', function() {
 					window.setTimeout(function() {
 						$('body').removeClass('is-preload');
 					}, 100);
